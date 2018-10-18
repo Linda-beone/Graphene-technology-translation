@@ -18,18 +18,24 @@
 
 **翻译完成**，到领取的 issue 中回复：此章节我已翻译完成。见 PR #1 等待维护人员进行后续处理即可。
 
+其中dev.bitshares.works的译文完成后，请根据https://github.com/bitshares/dev.bitshares.works 的目录结构上传
+ dev.bitshares.works的译文完成后，请根据https://github.com/bitshares/how.bitshares.works 的目录结构上传
+
 # 格式说明
 译文统一使用markdown编辑器
 
-注释需翻译，代码不翻译，但代码需在译文中排版进去。
+1.注释需翻译，代码不翻译，但代码需在译文中排版进去。
 
-并在译文上方表明如下信息：
+2.关于图表，译者将原图截图后，加入中文注释，然后嵌入到MD文档对应位置。
 
-** 原文链接：
 
-** 译者：
+3.译文上方表明如下信息：
 
-** 校对者：
+**原文链接：
+
+**译者：
+
+**校对者：
 
 
 # 校译说明
