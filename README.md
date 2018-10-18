@@ -19,6 +19,7 @@
 **翻译完成**，到领取的 issue 中回复：此章节我已翻译完成。见 PR #1 等待维护人员进行后续处理即可。
 
 其中dev.bitshares.works的译文完成后，请根据https://github.com/bitshares/dev.bitshares.works 的目录结构上传
+
  dev.bitshares.works的译文完成后，请根据https://github.com/bitshares/how.bitshares.works 的目录结构上传
 
 # 格式说明
