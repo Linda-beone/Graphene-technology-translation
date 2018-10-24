@@ -47,9 +47,9 @@ https://readthedocs.org/projects/python-graphenelib/
 
 
 
-用Python创建市场锚定资产或用户自定义资产
+用Python创建市场化锚定资产或用户自定义资产
 
-我们现在可以创建一些市场磨丁资产并建立喂价。
+我们现在可以创建一些市场化锚定资产并建立喂价。
 
 
 创建市场锚定资产：
