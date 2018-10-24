@@ -1,6 +1,8 @@
 **原文链接**：[http://dev.bitshares.works/en/master/supports_dev/monitoring_nodejs.html#monitor-balance-nodejs](http://dev.bitshares.works/en/master/supports_dev/monitoring_nodejs.html#monitor-balance-nodejs)
+ 
  **译者**：[https://github.com/b-t-s-1](b-t-s-1)
-**校对者**：
+ 
+ **校对者**：
 
 # 监控余额历史 - NodeJs
 
