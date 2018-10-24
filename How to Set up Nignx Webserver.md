@@ -73,7 +73,7 @@ Nginx通过刷新安装的nginx.conf文件配置完成的。：
     gzip  on;
     
     upstream websockets {
-      ## Put the witness node's websocket rpc port here:
+ 
       #把见证人节点的网络的网络套接字的远程端口放在这：
       server localhost:11011;
     }
