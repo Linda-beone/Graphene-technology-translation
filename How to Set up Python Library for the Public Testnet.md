@@ -67,7 +67,7 @@ https://github.com/BitSharesEurope/testnet-pythonscripts/blob/master/feed.parity
 https://github.com/BitSharesEurope/testnet-pythonscripts/blob/master/feed.random.py
 
 
-我们可用的cron运行定期喂价脚本：
+我们可用cron运行定期喂价脚本：
 
 */15 * * * * /usr/bin/python3 /home/gph/testnet-pythonscripts/feed.last.py
 
