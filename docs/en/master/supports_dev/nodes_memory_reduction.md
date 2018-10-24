@@ -1,6 +1,8 @@
 **原文链接**：[http://dev.bitshares.works/en/master/supports_dev/nodes_memory_reduction.html#memory-nodes](http://dev.bitshares.works/en/master/supports_dev/nodes_memory_reduction.html#memory-nodes)
- **译者**：[https://github.com/b-t-s-1](b-t-s-1)
-**校对者**：
+  
+  **译者**：[https://github.com/b-t-s-1](b-t-s-1)
+ 
+ **校对者**：
 
 
 # 减少节点内存
