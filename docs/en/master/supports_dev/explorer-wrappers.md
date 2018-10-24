@@ -1,3 +1,7 @@
+**原文链接**：[http://dev.bitshares.works/en/master/supports_dev/explorer-wrappers.html#explorer-wrappers](http://dev.bitshares.works/en/master/supports_dev/explorer-wrappers.html#explorer-wrappers)
+ **译者**：[https://github.com/b-t-s-1](b-t-s-1)
+**校对者**：
+
 # 比特股区块浏览器和封装
 
 ## 主网

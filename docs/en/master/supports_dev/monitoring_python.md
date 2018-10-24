@@ -1,3 +1,7 @@
+**原文链接**：[http://dev.bitshares.works/en/master/supports_dev/monitoring_python.html#monitor-account-python](http://dev.bitshares.works/en/master/supports_dev/monitoring_python.html#monitor-account-python)
+ **译者**：[https://github.com/b-t-s-1](b-t-s-1)
+**校对者**：
+
 #  监控账户存款 -  Python
 
 ## 安装
