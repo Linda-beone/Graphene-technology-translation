@@ -1,6 +1,8 @@
 **原文链接**：[http://dev.bitshares.works/en/master/supports_dev/supports.html](http://dev.bitshares.works/en/master/supports_dev/supports.html)
+ 
  **译者**：[https://github.com/b-t-s-1](b-t-s-1)
-**校对者**：
+ 
+ **校对者**：
 ---
 # 支持和优化
 
