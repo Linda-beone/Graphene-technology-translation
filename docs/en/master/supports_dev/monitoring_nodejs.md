@@ -1,9 +1,9 @@
-**原文链接**：[http://dev.bitshares.works/en/master/supports_dev/monitoring_nodejs.html#monitor-balance-nodejs](http://dev.bitshares.works/en/master/supports_dev/monitoring_nodejs.html#monitor-balance-nodejs)
- 
- **译者**：[https://github.com/b-t-s-1](b-t-s-1)
- 
- **校对者**：
+**原文链接**：[http://dev.bitshares.works/en/master/supports_dev/monitoring_nodejs.html#monitor-balance-nodejs](http://dev.bitshares.works/en/master/supports_dev/monitoring_nodejs.html#monitor-balance-nodejs) 
 
+ **译者**：[https://github.com/b-t-s-1](b-t-s-1) 
+ 
+**校对者**：
+***
 # 监控余额历史 - NodeJs
 
 此nodejs脚本监视基于石墨烯的网络（如比特股 2.0）中帐户的余额历史记录。
