@@ -18,7 +18,7 @@
 
 **翻译完成**，到领取的 issue 中回复：此章节我已翻译完成。见 PR # XX(XX是指在pull request时的实际数字) 等待维护人员进行后续处理即可。
 
-其中dev.bitshares.works的译文完成后，请根据https://github.com/bitshares/dev.bitshares.works 的目录结构上传
+其中dev.bitshares.works的译文完成后，请根据https://github.com/bitshares/dev.bitshares.works 的目录结构上传（issue 1-44是dev.bitshares.works都内容）
 
  dev.bitshares.works的译文完成后，请根据https://github.com/bitshares/how.bitshares.works 的目录结构上传
 
