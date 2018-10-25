@@ -1,6 +1,4 @@
 
-
-
 **原文链接**：[http://dev.bitshares.works/en/master/supports_dev/debug_node_whatif_test.html#what-if-test](http://dev.bitshares.works/en/master/supports_dev/debug_node_whatif_test.html#what-if-test) 
 
  **译者**：[https://github.com/b-t-s-1](b-t-s-1) 
