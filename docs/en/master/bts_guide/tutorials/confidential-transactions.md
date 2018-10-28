@@ -1,3 +1,11 @@
+ **原文链接**：[http://dev.bitshares.works/en/master/bts_guide/tutorials/confidential-transactions.html#confidential-transactions-guide](http://dev.bitshares.works/en/master/bts_guide/tutorials/confidential-transactions.html#confidential-transactions-guide)
+ 
+ **译者**：[https://github.com/b-t-s-1](b-t-s-1)
+ 
+ **校对者**： 
+  
+***
+
 # 机密转移
 
 **如何使用CLI钱包执行机密交易比特股**
