@@ -40,7 +40,7 @@ this: signed\_transaction transfer(string from, string to, string amount, string
 例如，以二进制形式的交易。履行空间对象只能存在于实现目的，例如优化或内部记账。
 
 第二个数字指定类型。对象的类型决定它有哪些域。有关类型ID的完整列表，请参阅枚举
-types.hpp中的object_type和enum impl_object_type。
+types.hpp中的object_type和impl_object_type。
 
 第三个数字是指定实例。对象的实例对每个个体对象是不同的。
 

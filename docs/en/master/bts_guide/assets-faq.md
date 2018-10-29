@@ -142,8 +142,8 @@
 
 # 什么是市场挂钩资产特定参数？
 
-  - `feed_lifetime_sec`:喂价的生命周期。在此之后(很快）喂价不再被视为*有效*。
-  - `minimum_feeds`: 数量的喂价是市场成为必需的，使其（并保持）活跃。
+  - `feed_lifetime_sec`:喂价的生命周期。在此之后(很快）喂价不再被视为*有效*
+  - `minimum_feeds`: 数量的喂价是市场成为必需的，使其（并保持）活跃
   - `force_settlement_delay_sec`: 请求结算和实际执行结算（以秒为单位）之间的延迟
   - `force_settlement_offset_percent`: 结算价格的百分比偏差（100％= 10000）
   - `maximum_force_settlement_volume`: 每天可以结算的最大供应百分比（100％= 10000）
