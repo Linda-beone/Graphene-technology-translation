@@ -1,0 +1,152 @@
+原文链接：http://dev.bitshares.works/en/master/intro/environments.html
+译者：bt666
+
+
+#开发环境
+
+----------
+
+[TOC]
+
+你可以在不同平台上安装比特股的BitShares-Core;  [Linux:Ubuntu (x64) ](http://dev.bitshares.works/en/master/development/installation/build_ubuntu.html#build-ubuntu)
+，[OS X](http://dev.bitshares.works/en/master/development/installation/build_osx.html#build-osx)，和[Windows](http://dev.bitshares.works/en/master/development/installation/build_windows.html#build-windows)下载OpenSSL和Boost时需要检查部分依赖包。请确认所下载的版本。
+
+另外，如果你是Windows用户，您还有另外两种方法在Windows (x64)操作系统上安装BitShares Core。一种是[Windows的clic - wallet tools (x64) ](http://dev.bitshares.works/en/master/development/installation/windows_cli_tool.html#cli-tool)，另一种是[Linux的Windows子系统 (WSL)](http://dev.bitshares.works/en/master/development/installation/wsl.html#build-wsl)。
+
+用于Windows (x64)系统的clic-wallet工具允许您在不安装BitShares Core的情况下使用命令行钱包（CLI wallet）。下载clic-wallet工具包(zip文件)，解压后您将找到运行命令行钱包所需的所有文件。
+
+另一种选择是Linux的Windows子系统(WSL)。 WSL适用于使用Windows 10（x64）操作系统并希望在Ubuntu上构建BitShares Core的开发人员。
+
+> 查看[系统需求](http://dev.bitshares.works/en/master/development/apps/node.html#system-requirements-node) <system-requirements-node>(更新: 2018-07-02).
+
+##比特股代码和文件
+
+
+- 开源项目
+- 使用的语言 (主要地): BitShares-Core(C++), python
+- 比特股[ GitHub](https://github.com/bitshares)
+   - **BitShares-Core (C++)** - 比特股块链的实现以及命令行接口.
+   - **Bitshares-FC** - 快速编译的 C++ 库 
+   - **BitShares python** - 比特股块链全功能的客户端库-完全用python编写.
+   - **BitShares-UI** - 比特股块链全功能图形用户界面/参考钱包.
+   - **BSIPs** - 比特股改进协议. 这些技术文档描述了更新和改进比特股块链和技术生态系统的过程.
+   - **BitSharesjs** - 比特股加密和序列化的JavaScript工具.
+   - **BitSharesjs-ws** - 比特股的Javascript websocket接口 
+   - (更多...)
+  
+
+## BitShares Core: 项目指南 
+
+### 项目指南
+
+- [贡献指南 [DRAFT]](https://github.com/bitshares/bitshares-core/wiki/Contribution-Guide) 
+- [贡献指南项目](https://github.com/bitshares/bitshares-core/projects/6)
+- 
+#### BitShares-Core (团队) 
+
+BitShares-Core团队是一个由开发人员组成的团队，他们管理BitShares-Core代码并处理其他开发人员提交的问题。团队为下一次版本发布制定项目计划，并将结果提交给比特股社区。
+
+* 角色
+
+  - 改进
+  - 维护
+  - 如果需要的话，更新协议
+  - 为新版本的发布制定计划
+  - 创建/ 通知  Release 
+  - 支持比特股社区/ 解答问题
+  
+## BitShares Core: GitFlow
+
+### 目的
+
+* 本文档的目的是描述和定义变更如何流入我们的代码，以及如何贯穿到开发的各个阶段，直到它最终投入生产.
+* 总体的思路是基于 [git-flow](https://datasift.github.io/gitflow/IntroducingGitFlow.html) 
+* 为了达到目的，我们将gitflow中的一般概念加以扩展从而满足以下这些额外的需求：
+
+1. 我们有两种不同的版本，mainnet（主网）和testnet（测试网），每个版本都有一个类似于master的分支.
+2. 我们必须将共识影响变更（又名硬分叉）以及非共识影响变更区分开来.
+
+
+### 非共识性的: 开发 / 发布 / Bugfix 工作流
+
+![Alt text](./1540106273309.png)
+
+
+###  共识性的: 开发 / 发布 / Bugfix 工作流
+
+![Alt text](./1540106319654.png)
+
+
+
+### 待实现的目标
+
+1. 维护两个独立的版本，测试网和主网.
+2. 将开发与版本发布分离开来，即能够紧急修复当前版本的代码漏洞，而又不会将不完备的功能点引入到生产环境。
+3. 分离共识相关的变更与非共识相关的变更.
+4. 保持开发分支与主网兼容.
+
+###  基本规则
+
+1. 开发都是在私有的功能分支上进行的。唯一例外地能在目标分支上直接更改的变更必须是非常重要的(典型示例:测试网中的硬分叉日期)
+2. 功能在相对完备时可加以合并，也就是说，它们带有提供了合理覆盖率且不报告任何错误的单元测试
+  - 与共识无关的“完备的”功能合并到”开发“分支
+  - 与共识相关的“完备的”功能合并到“硬分叉”分支，且标注上很久之后的硬分叉日期
+  - 所有到“开发”或“硬分叉”分支的合并操作都是通过在github上发起PR请求执行的，并且需要核心源码开发人员的审批(如果PR请求由一个核心开发人员发起，那么至少需要另一个核心开发人员进行审批)
+  - 为了保持清晰的提交历史记录，同时简化审核和合并过程，在发起PR请求之前，功能分支必须从当前的“开发”(或“硬分叉”)分支构建
+  - 总是通过真实合并的方式来合并分支，而不是推进式合并或者拼凑式合并的方式
+3. 核心开发人员协调从“开发”分支到“硬分叉”分支的常规合并
+4. “开发”分支和“硬分叉”分支都应该始终和mainnet保持兼容，也就是说，能保证一次完整的重现
+
+###  如何创建Release
+
+对于一次发版,
+
+0. 修改
+
+  1. 检查升级后是否需要修改' ' DB_VERSION ' '来强制性重现:如果有数据库变更或逻辑更改而影响了历史数据，则答案是肯定的.
+  2. FC版本通常在开发过程中已经修改过了，不过再检查一遍也没什么损失.
+  3. 修改链接到wiki的子模块文档.
+
+1. “发布”分支是基于“开发”或“硬分叉”分支的.
+2. “发布”分支合并到测试网.
+3. 发布硬分叉时, 硬分叉日期在测试网分支上直接更改.
+4. “测试网”分支要打上测试版本的标签.
+5. 版本的Bugfixes是在“发布”分支上创建的，并合并进“测试网”分支，此外还需要打上测试版本号标签.
+6. 充分测试后，发版请求必须得到批准. 发布硬分叉版本，需要受托人的批准.
+7. 批准后可确定主网硬分叉日期，同时将该日期记录在“发布”分支上.
+8. 将“发布”分支合并到“主”分支上，并在“主”分支上打上版本号标签.
+9. 将“发布”分支与“开发”分支和“硬分叉”分支进行合并.
+10. 将“发布”分支和并进“测试网”分支. 由于硬分叉日期的差异合并时会发生冲突，需要在不改变测试网硬分叉日期的前提下解决这个冲突.
+11. 更新“Doxyfile”文件，打上最后一次的版本号. 通过更新主分支的配置文件“Doxyfile”从而更新在线代码文档. 使用html格式重新向[https://github.com/bitshares/bitshares.github.io](https://github.com/bitshares/bitshares.github.io)发起PR请求。
+12. 更新 [bitshares.org](https://github.com/bitshares/bitshares.github.io/blob/master/_includes/download.html) 的下载页
+
+**注意:** 通过网页使用github来解决冲突时会合并分支。避免使用这种解决方式，改为使用git的命令行来手动地合并分支，解决冲突。冲突通常发生在合并发布分支进测试网分支的时候.
+
+**注意 2:** 使用github命令行来解决冲突的最后会提示你没有权限直接将分支合并进测试网分支，永远不要将修复操作推送到发布分支。创建一个新的分支并将提交推送到该分支，然后在测试网分支和这个新分支间发起新的PR请求，将新分支合并进测试网分支，发布分支将会自动被添加到这次合并中。
+
+**注意 3:** 使用“git tag”命令来给测试网创建标签。Github无法在没有发布版本的情况下创建标签.
+
+**注意 4:** 这个创建标签的提交请求是可以改变的。不要改变github上的标签。这会令人困惑而且会出现不可重现的bug。最好新建一个标签(例如:test-2.0.180321b或者等一天后再操作）.
+
+**注意 5:** 不要将发布标记为“预发布”，除非随后有真正的新版本发布。永远不要将“预发布”升级为“发布”，因为这样做订阅者不会收到新的邮件提醒.
+
+###  如何发起紧急修复
+
+当在主网发现严重问题时，可能需要进行紧急修复。这里的目标是尽快修复问题，同时尽可能降低产生其他问题的风险.
+
+首先需要分析和调试问题，显然，这个需要直接在发布版本上操作.
+
+可能发起修复的开发人员需要在他的个人主分支上工作。这没问题，但是要发布修复，应该采取以下步骤:
+
+###  紧急修复工作流
+
+![Alt text](./1540106333603.png)
+
+		
+
+1. 当创建被破坏的发行版本时，修复操作会在发布分支上执行，该分支之前已经合并进了主分支.
+2. 将发布分支合并进主分支，同时给主分支打上版本号标签.
+3. 受托人更新节点到新版本，并继续产块.
+4. 在能重现问题的开发分支上创建单元测试.
+5. 将发布分支合并进开发分支，并且通过单元测试验证这次修复解决了问题.
+6. 将发布版本合并进硬分叉分支和测试网分支.
