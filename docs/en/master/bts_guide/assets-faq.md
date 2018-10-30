@@ -25,9 +25,9 @@
 
   -    MPG-选项:
         
-          - Feed Life Time
-          - Minimum Feeds
-          - Force Settlement Offset/Delay/Volume
+          - 喂价生命周期
+          - 最小喂价
+          - 强制清偿 偏移/延时/数量
 
 不能改变的参数:
 
