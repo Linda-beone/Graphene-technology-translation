@@ -1,3 +1,6 @@
+原文链接:https://bitshares.org/technology/industrial-performance-and-scalability/
+译者：bt666
+
 # 工业性能和可扩展性 #
 
 **当我们支付网络费用时，石墨烯性能能够达到100,000 TPS**
