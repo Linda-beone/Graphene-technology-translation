@@ -6,8 +6,8 @@
   
 ****************************************
 # BitShares开发者贡献
-****************************************
 
+***
 - BPAB - Bitshares python API后端:oxarbitrage 
 - Bitshares python API后端:oxarbitrage 
 - 查询存储在Elasticsearch数据库中的BitShares数据的简单封装装-oxarbitrage:oxarbitrage 

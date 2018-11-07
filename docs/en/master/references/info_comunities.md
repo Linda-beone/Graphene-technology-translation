@@ -8,29 +8,29 @@
 ***
 
 # BitShares社区
-********************      
+***   
 	  
 社区
 ======================
 	 
-* `BitShares社区`
-* `论坛 - BitSharesTalk`
-* `电报 - BitSharesDEX`
-* `电报 - BitShares Traders`
-* `Discord - BitShares`
-* `BitSares on Steemit`
-* `推特`
-* `红眼`
-* `BitSharesTalk.io`
+* BitShares社区
+* 论坛 - BitSharesTalk
+* 电报 - BitSharesDEX
+* 电报 - BitShares Traders
+* Discord - BitShares
+* BitSares on Steemit
+* 推特
+* 红眼
+* BitSharesTalk.io
 * (*将添加更多*)
 
-#超越比特币 - Bitshares
+# 超越比特币 - Bitshares
 
 - BitShares Discord Hangouts-BitShares Hangout:Discord Tips
 
-************************
+***
 # BitShares区块链
-************************
+***
 
 ## BitShares区块链基金会
 
@@ -56,8 +56,3 @@ Bitshares 区块浏览器
 ========================
 
 - Blocktivity
-
-
-|
-
-|
