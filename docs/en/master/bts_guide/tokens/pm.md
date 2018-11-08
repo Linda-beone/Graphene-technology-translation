@@ -11,7 +11,7 @@
 
 预测市场是一种专门的BitAsset，总债务和总抵押品总是相等的金额（尽管资产ID不同）。不能对预测市场资产执行追加保证金或强制结算。在预测事件解决后，预测市场由发行方全球结算，因此预测市场必须始终启用“global_settle”权限。全球结算或卖空预测市场资产的最高价格是1：1。
 
-Table of Contents
+目录
 
 * 创建
 * 赌注
@@ -24,7 +24,7 @@ Table of Contents
         <td bgcolor="LightBlue">注意</td>
     </tr>
     <tr>
-        <td bgcolor="MintCream">在下面，我们将预测市场积极结果解析为“真实”（即喂价1）和结果解析为假（即喂价0）</td>
+        <td bgcolor="MintCream">在下面，我们将预测市场积极结果解析为真实（即喂价1）和结果解析为假（即喂价0）</td>
     </tr>
 </table>
 

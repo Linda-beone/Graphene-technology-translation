@@ -19,9 +19,9 @@
 准备工作
 ---------------------
 
-* :ref:`资产常见问题解答 <asset-faq-index>`
-* :ref:`如何手动创建UIA（CLI）? <uia-create-manual>`
-* :ref:`如何手动创建MPA（CLI）? <mpa-create-manual>`
+* 参考:资产常见问题解答 <asset-faq-index>
+* 参考:如何手动创建UIA（CLI）? <uia-create-manual>
+* 参考:如何手动创建MPA（CLI）? <mpa-create-manual>
 
 
 ## 参数
@@ -48,3 +48,5 @@
 ------------------------
 
 我们有一个独特的教程，描述了如何发布Feed。
+ 
+* 参考:如何发布Feed价格（CLI）？<publish-feed>
