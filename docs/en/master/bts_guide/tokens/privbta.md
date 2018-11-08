@@ -27,12 +27,12 @@
 ## 参数
 
 相关且有趣的参数位于uia标志中：
-
-   {
+``` 
+  {  
       "witness_fed_asset" : false
       "committee_fed_asset" : false
    }
-
+```
 
 将这两个参数设置为“false”，允许手动定义一组Feed生成器（见下文）。 或者，将两者中的任何一个设置为“true”将使相应的实体有责任生成和发布Feed。
 
