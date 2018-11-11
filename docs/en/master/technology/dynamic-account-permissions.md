@@ -53,11 +53,11 @@ BitShares围绕设计权限，而不是加密，使其易于使用。每个帐�
 
 每个帐户都分配了两种权限：owner和active。
 
-* _authority_是一组密钥和/或帐户，每个密钥和/或帐户都分配了权重。
-* 每个_authority_都有一个权重阈值，必须在要求执行_authority_的操作之前越过。
-* _owner authority_用于冷存储，其主要作用是更新_active authority_或更改_owner authority_。
-* _active authority_意味着是一个热键，可以执行任何操作，除了更改_owner authority_。
-* 激励用例是一个双因素身份验证提供程序，作为_active authority_的共同签名者，但不是_owner authority_。
+* *authority*是一组密钥和/或帐户，每个密钥和/或帐户都分配了权重。
+* 每个*authority*都有一个权重阈值，必须在要求执行*authority*的操作之前越过。
+* *owner authority*用于冷存储，其主要作用是更新*active authority*或更改*owner authority*。
+* *active authority*意味着是一个热键，可以执行任何操作，除了更改*owner authority*。
+* 激励用例是一个双因素身份验证提供程序，作为*active authority*的共同签名者，但不是*owner authority*。
 
 通过这种方法，用户可以保持自信，他们的帐户将永远在他们的控制之下，然而这种控制可以保存在冷藏库中，没有人可以破解它。这意味着公司帐户可以要求其批准董事会和每个董事会成员可能需要的双因素身份验证。
 
@@ -102,7 +102,7 @@ B建议Y批准A的提案并等待X的批准。
 
 1. 这两个账户中如果没有另一个账户采取行动，因此无法实现任何目标。
 2. 循环不必是直接的，因为在这种情况下，它们可能涉及任意长的序列，因此是不明显的。
-3. 如果用户在_active authority_中创建批准循环，则_owner authority_ 可用于中断循环;但是，如果他们在_owner authority_和_active authority_中构建一个循环，则循环中涉及的帐户将被锁定。
+3. 如果用户在*active authority*中创建批准循环，则*owner authority* 可用于中断循环;但是，如果他们在*owner authority*和*active authority*中构建一个循环，则循环中涉及的帐户将被锁定。
 4. 实际上，客户端软件可以检测循环并防止它们形成。
 
 
