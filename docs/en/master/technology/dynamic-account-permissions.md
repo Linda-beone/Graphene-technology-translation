@@ -31,7 +31,7 @@ BitShares围绕设计权限，而不是加密，使其易于使用。每个帐�
 
 多签名技术都是关于权限管理的，权限应该根据人员或组织而不是密钥来定义。考虑一个由3个人经营的示例公司：Alice，Bob和Carol。Alice和Bob各自拥有公司40％的股份，Carol拥有20％的股份。该公司要求3个人中的的2个人批准所有费用。你可以根据分配给Alice，Bob和Carol的密钥来定义公司，但如果Alice想保护她拥有多重签名检查的自己的身份，该怎么办？Alice选择使用服务提供商，该服务提供商对Alice做的每个动作执行双因素身份验证。这可以保护Alice和公司，公司不需要更改其权限结构以适应Alice选择双因素身份验证提供程序。
 
-![](/images/dynamic-accounts.png)
+![](https://bitshares.org/images/dynamic-accounts.png)
 
 ## 解决方案
 
