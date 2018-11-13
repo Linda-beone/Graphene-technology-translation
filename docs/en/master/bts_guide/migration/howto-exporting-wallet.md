@@ -66,10 +66,10 @@
 ### 通过控制台导出
 
 * 进入到控制台：帐户列表 - >高级设置 - >控制台
-* 类型：例如 在Windows上: `wallet_export_keys[文件的完整路径]/[文件名] .json`  
+* 类型：例如在Windows上: `wallet_export_keys[文件的完整路径]/[文件名] .json`  
   	例如在Mac上：`wallet_export_keys /Users/[你的用户名]/Desktop/keys.json`  
     例如在Linux上：`wallet_export_keys /home/[你的用户名]/Desktop/keys.json`
-* 请用您的Windows帐户名替换`[你的用户名]`。
+* 请用您的Windows帐户名替换`[你的用户名]`
 * 并按Enter键
 
  <table style="width: 750px;"><tbody>

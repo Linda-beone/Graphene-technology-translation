@@ -5,125 +5,19 @@
  **校对者**： 
   
 ***  
-[BItShares Developers Portal](../../index.html) master
 
-Introduction :
 
-* [Introduction & Architectures](../../intro/architectures.html)
-* [Development Environments](../../intro/environments.html)
-* [System Components Elements](../../components/components.html)
+# 迁移备注
 
-Development
+## 关于私钥的备注
 
-* [Getting Started](../../development/installation.html)
-* [BitShares Accounts](../accounts/bts_account.html)
-* [Integration Guide](../../development/integration.html)
-* [Blockchain Interaction](../../development/interaction.html)
-* [Testnets](../../development/testnets.html)
-* [Support and Optimizations](../../supports_dev/supports.html)
-* [BSIPs](../../development/bsip.html)
+根据用户（交易）活动和投资者行为，请注意以下事项：
 
-Guides
+* **TITAN交易**：如果你上次打开钱包后可能收到TITAN交易（默认交易格式），则需要与BitShares 1.0区块链完全同步以捕获该交易并生成相应的私钥。之后，你可以使用石墨烯兼容钱包导出功能。
+* **市场交易**：每个市场订单都与交易时产生的密钥相关联，因此是你钱包的一部分。请注意，对于向BitShares 2.0的过渡，所有未结订单（空头订单除外）将被关闭，资金将返还给其所有者。
+* **冷存储资金**：只需将冷私钥导入BitShares 2.0即可申请冷存储资金。这将导致一个交易声明你的资金并将其存入你的帐户。
+* **PTS/AGS捐赠者**：你可以直接将相应的私钥导入BitShares 2.0以申请资金。请注意，由于网络钱包无法解析你的*wallet.dat* 文件，因此可能需要使用第三方工具手动转储你的私钥。。如果你对此不满意，我们建议你将*wallet.dat*文件导入BitShares 1.0客户端，并导出可与BitShares 2.0网络钱包导入的石墨烯兼容钱包文件。
 
-* [Developer Guide (Tutorials)](index.html)
-* [Frequently Asked Questions (FAQ)](../index_faq.html)
-* [BitShares Developers' Contributions](../../references/tech_articles.html)
-* [Articles](../../references/tech_articles.html#articles)
-* [BitShares Repositories](../../references/githubrepo.html)
+## 技术解释
 
-API
-
-* [1. API Guide](../../api/api_about.html)
-* [2. API Access and Restrictions](../../api/restrictions.html)
-* [3. Available Calls and Often used API](../../api/calls.html)
-* [4. Blockchain API(s)](../../api/blockchain_api.html)
-* [5. Wallet API - Calls](../../api/wallet_api.html)
-* [6. Objects and IDs](../../api/objects_ids.html)
-* [7. Graphene - Namespaces](../../api/namespaces.html)
-
-References
-
-* [BitShares Community](../../references/info_comunities.html)
-* [BitShares Blockchain](../../references/info_comunities.html#bitshares-blockchain)
-* [BitShares Community Events](../../references/info_bts_events.html)
-* [Glossary](../../knowledge_base/glossary.html)
-* [Knowledge Base](../../knowledge_base/index_kb.html)
-
-[BItShares Developers Portal](../../index.html)
-
-* [Docs](../../index.html) >>
-* Migration Remarks
-* [Edit on GitHub](https://github.com/bitshares/dev.bitshares.works/blob/master/docs/bts_guide/tutorials/howto-importing-wallet-remarks.rst)
-
-***
-
-# Migration Remarks [¶](#migration-remarks "Permalink to this headline")
-
-## Remarks on Private Keys [¶](#remarks-on-private-keys "Permalink to this headline")
-
-Depending on the users (trade) activity and investors behavior please also note
-the following:
-
-* **TITAN Transactions**:If there is a chance that you might have received a TITAN transaction(default transaction format) since you last opened your wallet, you arerequired to completely synchronize with the BitShares 1.0 blockchain to catchthat transaction and generate the corresponding private key. After that, youcan use the graphene-compatible wallet export function.
-* **Market transactions**:Each market order is associated a key that is derived when placing yourorder and is hence part of your wallet. Please note that for the transitionto BitShares 2.0, all open orders (except short orders) will be closed andthe funds returned to their owners.
-* **Cold Storage Funds**:You cold storage funds can be claimed by simply importing your cold privatekey into BitShares 2.0. This will result in a transaction that claims yourfunds and puts them into your account.
-* **PTS/AGS donators**:You can import your corresponding private keys into BitShares 2.0 directly toclaim your funds. Note that, since the web wallet cannot parse your <cite>wallet.dat</cite> file, you may be required to manually dump your private keys.with a 3rd party tool. If you feel not comfortable with this, we recommendyou import your <cite>wallet.dat</cite> file into the BitShares 1.0 client and export agraphene-compatible wallet file that can be imported in the BitShares 2.0 webwallet.
-
-## Technical Explanation [¶](#technical-explanation "Permalink to this headline")
-
-The BitShares 2.0 wallet architecture is vastly different than BitShares 1.0.
-In BitShares 1.0, each account consists of dozens or even thousands of keys,
-each of which is controlling a small portion of your balance and for TITAN
-users, none of the balances associated with your account use the same key as
-your account.  Under BitShares 2.0, all of these "balances" become unique
-accounts rather than a single logical account. The BitShares 2.0 wallet has
-an "import" interface that allows you to specify a set of private keys and
-the name of an account that you would like to receive all of the funds
-associated with those keys. Then it generates a transaction that spends the
-full balances from all accounts associated with those keys to your new
-unified BitShares 2.0 account. The BitShares 0.9.x wallet provides a utility
-to dump all private keys associated with a given account to make the
-migration process easy.
-
-***
-
-© Copyright 2018 BitShares Blockchain Foundation.
-
-          Revision `479cd19d`.
-
-Built with [Sphinx](http://sphinx-doc.org/) using a [theme](https://github.com/rtfd/sphinx_rtd_theme) provided by [Read the Docs](https://readthedocs.org) .
-
-      Read the Docs
-      v: master
-
-<dl>
-      <dt>Versions</dt>
-
-        <dd><a>latest</a></dd>
-
-        <dd><a>master</a></dd>
-
-    </dl>
-<dl>
-      <dt>Downloads</dt>
-
-        <dd><a>pdf</a></dd>
-
-        <dd><a>htmlzip</a></dd>
-
-        <dd><a>epub</a></dd>
-
-    </dl>
-<dl>
-      <dt>On Read the Docs</dt>
-        <dd>
-          <a>Project Home</a>
-        </dd>
-        <dd>
-          <a>Builds</a>
-        </dd>
-    </dl>
-
-***
-
-Free document hosting provided by [Read the Docs](http://www.readthedocs.org).
+BitShares 2.0钱包架构与BitShares 1.0截然不同。 在BitShares 1.0中，每个帐户包含数十个甚至数千个密钥，每个密钥控制一小部分余额，对于TITAN用户，与你的帐户关联的余额都不会与你的帐户使用相同的密钥。 在BitShares 2.0下，所有这些“余额”都成为唯一帐户而不是单个逻辑帐户。 BitShares 2.0钱包有一个“导入”界面，允许你指定一组私钥以及你希望接收与这些密钥关联的所有资金的帐户名称。 然后，它会生成一个交易，该交易将与这些密钥关联的所有帐户的全部余额花费到新的统一BitShares 2.0帐户。 BitShares 0.9.x钱包提供了一个实用程序，用于转储与给定帐户关联的所有私钥，以简化迁移过程。
