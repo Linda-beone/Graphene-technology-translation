@@ -80,6 +80,6 @@ worker_budget=min(total_budget-witness_budget,worker_budget_per_day/24)
 
 ## 参考文献：
 
-* [区块链工人系统](https://bitshares.org/doxygen/group__workers.html) ([*](#id1)open a doxygen documentation)
+* [区块链工人系统](https://bitshares.org/doxygen/group__workers.html) ([*](#id1)打开doxygen文档)
 
  
