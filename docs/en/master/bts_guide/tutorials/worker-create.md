@@ -160,8 +160,8 @@ get_object 1.14.4
 
 >
 
- **alt:**        BitShares 
- **width:**      600px   
+ **alt:**        BitShares   
+ **width:**      600px  
  **align:**      center
 
 ### 通过使用命令
