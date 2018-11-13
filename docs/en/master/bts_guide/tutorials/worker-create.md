@@ -271,8 +271,6 @@ total_budget = (updated reserve fund)*(time_since_last_budget)*17/(2^32)
 
 好的，现在要找出工人在这个预算期间（1小时）可以获得多少工资，你会发现从 `total_budget`或`get_global_properties`中的`worker_budget_per_day/24`中扣除见证人预算后的可用工资中的较小者：
 
- you find the smaller of the available pay AFTER subtracting witness budget from the <cite>total_budget</cite> OR the <cite>worker_budget_per_day/24</cite> from <cite>get_global_properties</cite>:
-
 ```
 worker_budget=min( total_budget - witness_budget , worker_budget_per_day / 24 )
 ```
