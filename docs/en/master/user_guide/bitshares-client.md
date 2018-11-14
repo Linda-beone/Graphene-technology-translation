@@ -5,226 +5,126 @@
  **校对者**： 
   
 ***  
-  
-[BitShares Documentation](../index.html) master
 
-Technology
+# 3. BitShares客户端和登录模式
 
-* [Graphene](../technology/graphene.html)
-* [What is BitShares?](../technology/what_bitshares.html)
-* [The History of BitShares](../technology/history_bitshares.html)
-* [Delegated Proof of Stake (DPOS)](../technology/dpos.html)
-* [What is different BitShares](../technology/difference_bitshares.html)
-* [Technology - BitShares.org](../technology/bitshares_features.html)
+目录
 
-BTS Holders
-
-* [1. Things you should know](../bts_holders/things_to_know.html)
-* [2. Assets Tokens](../bts_holders/tokens.html)
-* [3. Blockchain Governance](../bts_holders/bts_governance.html)
-* [4. Community Memberships](../bts_holders/community_members.html)
-* [5. Decentralized Exchange (DEX)](../bts_holders/dex.html)
-* [6. Investor Guide](../bts_holders/investor_guide.html)
-* [7. Migrating from BitShares 1.0 to BitShares 2.0](../bts_holders/migrating_bitshares20.html)
-
-User Guide
-
-* [1. BitShares Accounts](accounts/bts_account.html)
-* [2. Create a BitShares Wallet](create_account.html)
-* [3. BitShares Client and Login Mode](#)
-  - [3.1. BitShares Client](#bitshares-client)
-    + [3.1.1. Light Client](#light-client)
-    + [3.1.2. Web Client](#web-client)
-  - [3.2. Login Forms](#login-forms)
-    + [3.2.1. Cloud Wallet Login](#cloud-wallet-login)
-    + [3.2.2. Local Wallet Login](#local-wallet-login)
-  - [3.3. Summary](#summary)
-    + [3.3.1. Cloud Wallet](#cloud-wallet)
-    + [3.3.2. Local Wallet](#local-wallet)
-    + [3.3.3. Settings - LOGIN MODE](#settings-login-mode)
-  - [3.4. Frequently asked Questions](#frequently-asked-questions)
-* [4. Backups and Restore your Wallet](backup_local_wallet.html)
-* [5. Fund (Send) & Transactions](fund_account.html)
-* [6. Bridge and Gateway](bridge_gateway.html)
-* [7. Exchange and Explore](dex_exchange_ui.html)
-
-Resources
-
-* [BitShares Community](../resources/info_comunities.html)
-* [BitShares Blockchain](../resources/info_comunities.html#bitshares-blockchain)
-* [Resources External](../resources/info_external.html)
-
-[BitShares Documentation](../index.html)
-
-* [Docs](../index.html) >>
-* 3. BitShares Client and Login Mode
-* [Edit on GitHub](https://github.com/bitshares/how.bitshares.works/blob/master/home/docs/checkouts/readthedocs.org/user_builds/howbitsharesworks/checkouts/master/docs/conf.py/user_guide/bitshares-client.rst)
+* BitShares客户端和登录模式
+  - BitShares客户端
+     + 轻客户端
+     + Web客户端
+  - 登录方式
+     + 云钱包登录
+     + 本地钱包登录
+  - 摘要
+     + 云钱包
+     + 本地钱包
+     + 设置 - 登录模式
+  - 常见问题解答
 
 ***
 
-# [3. BitShares Client and Login Mode](#id1) [¶](#bitshares-client-and-login-mode "Permalink to this headline")
+## BitShares客户端
 
-Table of Contents
+你可以单独控制你的帐户和资金，它们是创建在你的计算机上的（在轻客户端或浏览器Web客户端中）。
 
-* [BitShares Client and Login Mode](#bitshares-client-and-login-mode)
-  - [BitShares Client](#bitshares-client)
-    + [Light Client](#light-client)
-    + [Web Client](#web-client)
-  - [Login Forms](#login-forms)
-    + [Cloud Wallet Login](#cloud-wallet-login)
-    + [Local Wallet Login](#local-wallet-login)
-  - [Summary](#summary)
-    + [Cloud Wallet](#cloud-wallet)
-    + [Local Wallet](#local-wallet)
-    + [Settings - LOGIN MODE](#settings-login-mode)
-  - [Frequently asked Questions](#frequently-asked-questions)
+* 如果你创建了**云钱包**，您将可以使用任何浏览器或计算机的凭据（用户名和密码）访问您的钱包。 您无需担心备份文件。 （_你没有这个功能._）
+* 如果您创建了**本地钱包**，您将**只能**在您用于注册和创建帐户的计算机上访问帐户。 如果您已创建备份文件，则可以将其导入并将钱包还原到其他位置。
 
-***
+### [3.1.1. 轻客户端
 
-## [3.1. BitShares Client](#id2) [¶](#bitshares-client "Permalink to this headline")
+下载客户端文件并将BitShares Wallet安装到您的计算机上。
 
-You have sole control of your accounts and funds and they are created on your computer (within the light-client or the browser web-client).
-
-* If you created a **Clout wallet**, you will be able to access to your wallet by using your credentials (username and password) from any browser or computers. You do not need to worry about a backup files. (_You do not have the functionality._)
-* If you created a **Local wallet**, you will be able to access your account **only** on the computer that you have used to register and create your account. If you have created a backup file, you can import it and restore your wallet somewhere else.
-
-### [3.1.1. Light Client](#id3) [¶](#light-client "Permalink to this headline")
-
-Download client files and install BitShares Wallet to your computer.
-
-**> Note: This download does not mean that you will have a Local wallet.**
+**>注意：此下载并不意味着您将拥有本地钱包。**
 
 * [Download the Official Light Client](http://bitshares.org/download/)
 * [BitShares-UI – Latest Release](https://github.com/bitshares/bitshares-ui/releases)
 
 **BitShares-UI**:
-This is a web application and runs in a browser. A connection is established to a trusted node in the network that serves as a gateway to the rest of the ecosystem.
+这是一个Web应用程序，可在浏览器中运行。 建立与网络中可信节点的连接，该节点充当生态系统其余部分的网关。
 
-### [3.1.2. Web Client](#id4) [¶](#web-client "Permalink to this headline")
+### 3.1.2. Web 客户端
 
-Access the network and open the wallet in the browsers via one of our partners.
+访问网络并通过我们的合作伙伴在浏览器中打开钱包。
 
 * wallet.bitshares.org [https://wallet.bitshares.org](https://wallet.bitshares.org)
-* (more...)
+* (更多...)
 
 ***
 
-## [3.2. Login Forms](#id5) [¶](#login-forms "Permalink to this headline")
+## 3.2. 登陆方式
 
-### [3.2.1. Cloud Wallet Login](#id6) [¶](#cloud-wallet-login "Permalink to this headline")
+### 3.2.1. 云钱包登陆
 
-The cloud wallet only allows for a single account to be accessed at a time. This wallet is generally the correct choice for a new user.
+云钱包只允许一次访问一个帐户。 这个钱包通常是新用户的正确选择。
 
-**Login Form**
+**登陆方式**
 
-You login with your account name and your password. The login form shows which type of wallet you login to. (i.e., Login with: **Account name (cloud wallet)**)
+您使用您的帐户名和密码登录。 登陆方式显示您登录的钱包类型。 （即登录：**帐户名称（云钱包）**）
 
-### [3.2.2. Local Wallet Login](#id7) [¶](#local-wallet-login "Permalink to this headline")
+### 3.2.2. 本地钱包登陆
 
-A Big difference between a Cloud wallet and a Local wallet is the local wallet creates a database within your browser. This means that access to your funds is tied to the browser only. If you attempt to access your local wallet from any other computer, or any other browser, it will fail unless you actively import your backup file from the original browser backup file.
+云钱包和本地钱包之间的最大区别是本地钱包在浏览器中创建数据库。 这意味着您的资金访问权限仅与浏览器相关联。 如果您尝试从任何其他计算机或任何其他浏览器访问本地钱包，除非您主动从原始浏览器备份文件导入，否则它将失败。
 
-**Login Form**
+**登陆方式**
 
-You select your Local wallet backup file name and type your password to login a Local wallet. The **Key file(.bin)** should be your wallet backup file name. The backup file contains all your keys information.
-
-***
-
-## [3.3. Summary](#id8) [¶](#summary "Permalink to this headline")
-
-The difference between a Cloud wallet and a Local Wallet.
-
-### [3.3.1. Cloud Wallet](#id9) [¶](#cloud-wallet "Permalink to this headline")
-
-* BitShare UI wallet will create a **Cloud wallet** as a default wallet. (i.e., [CREATE ACCOUNT])
-* The Cloud wallet allows you to login from any web browser at any time to gain access to your account by using your credentials (username and password).
-* The Cloud wallet only allows for a single account to be accessed at a time.
-* If you have a Cloud wallet, you don't need to worry about a backup. (_You don't have the functionality in the Cloud wallet_).
-* **You can switch the INTERFACE by using the [Settings] - [General] - [Login Mode], however your account won't switch, only the *interface* switches.**
-* **Even you import Private keys (was in the Cloud wallet) to the Local wallet, you do not have a brain key to associate with the Private keys you imported. Therefor, a brainkey restore won't find those Private keys. (In this case, no meaning to do a brainkey backup and restore.)**
-* **The Cloud wallet has no brainkey.** The password is basically the equivalent of the brainkey, but it's only used for that one account.
-
-### [3.3.2. Local Wallet](#id10) [¶](#local-wallet "Permalink to this headline")
-
-* **If you know you want to have a Local wallet, use an [advanced form] link on the Welcome to BitShares form and create a backup file. This is the only way to create a Local wallet.**
-* The Local wallet creates a correct pair of keys (a brainkey and private keys) and save the information to your browser.
-* The Local wallet creates a database with in your browser. This means that you can only access your funds from the same computer and web browser that you have used to register and create your account.  If you attempt to access your local wallet from any other computer, or any other browser, it will fail unless you actively import your backup file from the original browser backup file.
-* You have to create a backup files to manage the Cloud wallet account.
-* The Cloud wallet has Backup options. Go to [Settings] - [Backup] to find.- **Create local wallet backup** : create a Binary File (.bin) backup.- **Create brainkey backup** : give you long random phrases. You need to write down and keep it in a safe place.
-* The backup files can be used to move your local wallet to different computers or different browsers. In order to restore your local wallet you will need the backup file and your password! Therefor, it's extremely important you create a backup and keep a safe place.
-
-### [3.3.3. Settings - LOGIN MODE](#id11) [¶](#settings-login-mode "Permalink to this headline")
-
-**Users often misunderstand about this feature.**
-
-This setting feature allows you to select the LOGIN MODE. You can just switch the _interface_. You are **not** switching your account from one to another.
-
-Go to [Settings] - [General] - **LOGIN MODE** to find the feature.
-
-> **This feature only switch the *interface*! Not your account self.**
+您选择本地钱包备份文件名并输入密码以登录本地钱包。 **密钥文件（.bin）**应该是您的钱包备份文件名。 备份文件包含您的所有密钥信息。
 
 ***
 
-## [3.4. Frequently asked Questions](#id12) [¶](#frequently-asked-questions "Permalink to this headline")
+## 3.3. 摘要
 
-* **Can I switch (by changing the Wallet Mode or importing private keys) my Cloud wallet to a Local wallet?**
-  - No. Your account won't switch, only the _interface_ switches.
-* **I have a Cloud wallet. Can I have a Local wallet?**
-  - Yes. But you will have to create new account for the Local wallet.
-* **How can I move my funds from a Cloud wallet to a Local wallet?**
-  - We mentioned before. You have to create new account for the Local wallet. You can create the Local wallet by using an [**advanced form**] link on Welcome to BitShares form. After you created new Local wallet, send your funds from your old account (Cloud wallet) to new account (Local wallet). And create a backup!!
-* **I have a Cloud wallet. Do I have to save my private keys information somewhere?**
-  - Not necessary. Because the Could wallet always do it for extra security. Also lets you login without exposing your owner key, you can login using only the active key.
-* **Can I change a Cloud wallet password?**
-  - Yes.
-  - Go to [How to change a password if using a Cloud Wallet](https://github.com/bitshares/bitshares-ui/wiki/Cloud-Wallet-Login-and-changing-password) : from BitShares UI wiki
-* **Can I change a Local wallet password?**
-  - Yes.
-  - Go to [**Settings**] - [**Password**] - Change your password. Use this page .
-* **There is [Create Account] in a Side navigation menu. Can I create and add new account in the same wallet I logged in?**
-  - Yes. However, the account you logged in must have a LifeTime Membership (LTM) stats.
+云钱包和本地钱包之间的区别。
 
-[Next](backup_local_wallet.html "4. Backups and Restore your Wallet") [Previous](create_account.html "2. Create a BitShares Wallet")
+### 3.3.1. 云钱包
 
-***
+* BitShare UI钱包将创建**云钱包**作为默认钱包。 （即[创建帐户]）
+* 云钱包允许您随时从任何Web浏览器登录，以使用您的凭据（用户名和密码）访问您的帐户。
+* 云钱包只允许一次访问一个帐户。
+* 如果您有云钱包，则无需担心备份。 （_您没有云钱包中的功能_）。
+* **你可以使用[设置]-[常规]-[登录模式]切换界面，但是您的帐户不会切换，只是界面开关。**
+* **云钱包没有brain密钥。**密码基本上相当于brain密钥，但它只用于那个帐户。
 
-© Copyright 2018, BitShares Blockchain Foundation.
+### 3.3.2. 本地钱包
 
-          Revision `237abdab`.
+* **如果您知道要拥有本地钱包，请使用欢迎使用BitShares表单上的[高级表单]链接并创建备份文件。这是创建本地钱包的唯一方法。**
+* 本地钱包创建一对正确的密钥（一个brain密钥和私钥）并将信息保存到您的浏览器。
+* 本地钱包在您的浏览器中创建一个数据库。这意味着您只能从用于注册和创建帐户的同一台计算机和网络浏览器访问您的资金。如果您尝试从任何其他计算机或任何其他浏览器访问本地钱包，除非您主动从原始浏览器备份文件导入，否则它将失败。
+* 您必须创建备份文件才能管理云钱包帐户。
+* 云钱包有备份选项。转到[设置] - [备份]进行查找。 - **创建本地钱包备份**：创建二进制文件（.bin）备份。 - 创建brain密钥备份：给你很长的随机短语。你需要写下来并保存在安全的地方。
+* 备份文件可用于将本地钱包移动到不同的计算机或不同的浏览器。要恢复本地钱包，您需要备份文件和密码！因此，创建备份并保存在安全的地方非常重要。
 
-Built with [Sphinx](http://sphinx-doc.org/) using a [theme](https://github.com/rtfd/sphinx_rtd_theme) provided by [Read the Docs](https://readthedocs.org) .
+### 3.3.3. 设置 - 登录模式
 
-      Read the Docs
-      v: master
+**用户经常误解此功能。**
 
-<dl>
-      <dt>Versions</dt>
+此设置功能允许您选择登录模式。你可以切换_界面_。您**不是**将您的帐户从一个切换到另一个。
 
-        <dd><a>latest</a></dd>
+转到[设置] - [常规] - **登录模式**以查找该功能。
 
-        <dd><a>master</a></dd>
-
-    </dl>
-<dl>
-      <dt>Downloads</dt>
-
-        <dd><a>pdf</a></dd>
-
-        <dd><a>htmlzip</a></dd>
-
-        <dd><a>epub</a></dd>
-
-    </dl>
-<dl>
-      <dt>On Read the Docs</dt>
-        <dd>
-          <a>Project Home</a>
-        </dd>
-        <dd>
-          <a>Builds</a>
-        </dd>
-    </dl>
+> **此功能仅切换*界面*！不是你自己的帐户。**
 
 ***
 
-Free document hosting provided by [Read the Docs](http://www.readthedocs.org).
+## 3.4. 常见问题解答
+
+* **我可以将我的云钱包切换（通过更改钱包模式或导入私钥）到本地钱包吗？**
+  - 不。您的帐户不会切换，只有_界面_开关。
+* **我有一个云钱包。我可以有本地钱包吗？**
+  - 是的。但您必须为本地钱包创建新帐户。
+* **如何将资金从云钱包转移到本地钱包？**
+  - 我们之前提到过。您必须为本地钱包创建新帐户。您可以使用Welcome to BitShares表单上的[**高级表单**]链接创建本地钱包。创建新的本地钱包后，将您的资金从旧帐户（云钱包）发送到新帐户（本地钱包）。并创建备份!!
+* **我有一个云钱包。我是否必须在某处保存我的私钥信息？**
+  - 没有必要。因为云钱包总是为了额外的安全性而做。还允许您在不暴露所有者密钥的情况下登录，您只能使用活动密钥登录。
+* **我可以更改云钱包密码吗？**
+  - 可以的。
+  - 转到[如何使用云钱包修改密码](https://github.com/bitshares/bitshares-ui/wiki/Cloud-Wallet-Login-and-changing-password) : 来自BitShares UI wiki
+* **我可以更改本地钱包密码吗？**
+  - 可以的。
+  - 转到[**设置**] - [**密码**] - 更改密码。 使用此页面。
+* **侧面导航菜单中有[创建帐户]。 我可以在我登录的同一个钱包中创建和添加新帐户吗？**
+  - 是的. 但是，您登录的帐户必须具有LifeTime Membership（LTM）统计信息。
+
+
 

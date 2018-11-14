@@ -7,27 +7,27 @@
 ***  
 
 
-# [2. Create a BitShares Wallet
+# 2. Create a BitShares Wallet
 
 Table of Contents
 
-* [Create a BitShares Wallet](#create-a-bitshares-wallet)
-  - [Terminology](#terminology)
-  - [Light wallet or Web wallet?](#light-wallet-or-web-wallet)
-  - [Create an Account](#create-an-account)
-    + [Steps](#steps)
-  - [Login](#login)
-    + [Cloud Wallet Login form](#cloud-wallet-login-form)
-  - [Advanced: Create an Account](#advanced-create-an-account)
-    + [Steps](#id1)
-  - [BitShares Wallet Features](#bitshares-wallet-features)
-    + [Quick Review Wallet Options](#quick-review-wallet-options)
-      * [Dashboard](#dashboard)
-      * [Side Menus - Dropdown items](#side-menus-dropdown-items)
+* Create a BitShares Wallet
+  - Terminology
+  - Light wallet or Web wallet?
+  - Create an Account
+    + [Steps
+  - Login](#login)
+    + Cloud Wallet Login form
+  - [Advanced: Create an Account
+    + Steps](#id1)
+  - BitShares Wallet Features
+    + [Quick Review Wallet Options
+      * Dashboard
+      * Side Menus - Dropdown items
 
 ***
 
-## [2.1. Terminology](#id3) [¶](#terminology "Permalink to this headline")
+## 2.1. Terminology
 
 In this section, we want to describe Terminologies  and guide you to create and register your BitShares Account.
 
@@ -49,7 +49,7 @@ BitShares has _owner, active and memo keys_. And each key has _public key and pr
 
 ***
 
-## [2.2. Light wallet or Web wallet?](#id4) [¶](#light-wallet-or-web-wallet "Permalink to this headline")
+## 2.2. Light wallet or Web wallet?
 
 Before we create a wallet, let's check what type of wallet you can have as your BitShares wallet. Quick check the below chart.
 
@@ -67,7 +67,7 @@ Did you find out which type of wallet you want to have?
 
 ***
 
-## [2.3. Create an Account](#id5) [¶](#create-an-account "Permalink to this headline")
+## 2.3. Create an Account
 
 In this section, you will create a **Cloud wallet**.
 
@@ -75,7 +75,7 @@ We use the term Cloud Wallet, but technically nothing is stored in the cloud. We
 
 **Welcome BitShares - Create Account & Login form**
 
-### [2.3.1. Steps](#id6) [¶](#steps "Permalink to this headline")
+### 2.3.1. Steps
 
 * 1.Click [**CREATE ACCOUNT**]
 * 2.Type in [**ACCOUNT NAME**]. You can create your unique BitShares account name.
@@ -97,11 +97,11 @@ Now, you have a BitShares **Cloud Wallet**. Before you fund to your account, let
 
 ***
 
-## [2.4. Login](#id7) [¶](#login "Permalink to this headline")
+## 2.4. Login
 
 Click a **Locked Key** icon in the top right corner to open a login form.
 
-### [2.4.1. Cloud Wallet Login form](#id8) [¶](#cloud-wallet-login-form "Permalink to this headline")
+### 2.4.1. Cloud Wallet Login form
 
 If you followed the above steps to create a BitShares account, you have a Cloud Wallet as a default wallet.
 
@@ -111,7 +111,7 @@ If you logged in successfully, you would find a **Unlocked Key**.
 
 ***
 
-## [2.5. Advanced: Create an Account](#id9) [¶](#advanced-create-an-account "Permalink to this headline")
+## 2.5. Advanced: Create an Account
 
 In this section, you will create a **Local Wallet**.
 
@@ -119,7 +119,7 @@ If you have a Cloud Wallet, you can access your wallet from any browsers. Howeve
 
 The Local wallet requires you to create **a backup file** to manage your account and funds. The backup file can be used to move
 
-### [2.5.1. Steps](#id10) [¶](#id1 "Permalink to this headline")
+### 2.5.1. Steps
 
 * 1.Click [**advanced form**]
 * 2.Type in [**ACCOUNT NAME**]. You can create your unique BitShares account name.
@@ -141,9 +141,9 @@ The Local wallet requires you to create **a backup file** to manage your account
 
 ***
 
-## [2.6. BitShares Wallet Features](#id11) [¶](#bitshares-wallet-features "Permalink to this headline")
+## 2.6. BitShares Wallet Features
 
-### [2.6.1. Quick Review Wallet Options](#id12) [¶](#quick-review-wallet-options "Permalink to this headline")
+### 2.6.1. Quick Review Wallet Options
 
 |  | Item name | note |
 | --- | --- | --- |
@@ -159,7 +159,7 @@ The Local wallet requires you to create **a backup file** to manage your account
 | 10 | Latency | The delay of Network connection |
 | 11 | Server Node name | A server node name that you are connecting |
 
-#### [2.6.1.1. Dashboard](#id13) [¶](#dashboard "Permalink to this headline")
+#### 2.6.1.1. Dashboard
 
 **Dashboard Tabs**
 
@@ -172,7 +172,7 @@ The Local wallet requires you to create **a backup file** to manage your account
 
 **Activity - Filters**
 
-#### [2.6.1.2. Side Menus - Dropdown items](#id14) [¶](#side-menus-dropdown-items "Permalink to this headline")
+#### 2.6.1.2. Side Menus - Dropdown items
 
 | option |  |
 | --- | --- |
@@ -228,48 +228,6 @@ and some account settings. |
 Also, if you want to change your Cloud Wallet password, use the "Cloud Wallet" tab page. |
 | (Accounts) |  |
 
-[Next](bitshares-client.html "3. BitShares Client and Login Mode") [Previous](accounts/bts_account.html "1. BitShares Accounts")
 
-***
 
-© Copyright 2018, BitShares Blockchain Foundation.
-
-          Revision `237abdab`.
-
-Built with [Sphinx](http://sphinx-doc.org/) using a [theme](https://github.com/rtfd/sphinx_rtd_theme) provided by [Read the Docs](https://readthedocs.org) .
-
-      Read the Docs
-      v: master
-
-<dl>
-      <dt>Versions</dt>
-
-        <dd><a>latest</a></dd>
-
-        <dd><a>master</a></dd>
-
-    </dl>
-<dl>
-      <dt>Downloads</dt>
-
-        <dd><a>pdf</a></dd>
-
-        <dd><a>htmlzip</a></dd>
-
-        <dd><a>epub</a></dd>
-
-    </dl>
-<dl>
-      <dt>On Read the Docs</dt>
-        <dd>
-          <a>Project Home</a>
-        </dd>
-        <dd>
-          <a>Builds</a>
-        </dd>
-    </dl>
-
-***
-
-Free document hosting provided by [Read the Docs](http://www.readthedocs.org).
 
