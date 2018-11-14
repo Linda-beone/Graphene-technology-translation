@@ -28,7 +28,7 @@ BitShares 2.0的网络钱包有一个**钱包管理控制台**。 这将有助�
         <td bgcolor="LightBlue">注意</td>
     </tr>
     <tr>
-        <td bgcolor="MintCream"> 如果使用无效格式加载文件文件，请确保你已按照[导出钱包](http://dev.bitshares.works/en/master/bts_guide/migration/howto-exporting-wallet.html)中所述的步骤操作，并确保单击导入密钥而不是还原备份。</td>
+        <td bgcolor="MintCream"> 如果使用无效格式加载文件文件，请确保你已按照<a href= "http://dev.bitshares.works/en/master/bts_guide/migration/howto-exporting-wallet.html"> 导出钱包</a> 中所述的步骤操作，并确保单击导入密钥而不是还原备份。</td>
     </tr>
 </table>
   
