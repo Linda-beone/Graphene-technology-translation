@@ -89,7 +89,8 @@
 *所有者账户*正在创建一个从10月28日开始的一天工作人员，并将获得1BTS/天（1天归属，1 BTS = 100,000'Satoshi'）以制作Android应用程序。 第一个命令不会广播，这只会检查：
 
 ```
->>> create_worker "worker-name" "2015-10-28T00:00:00" "2015-10-29T00:00:00" 100000 "Description" "http://URL" {"type" : "vesting", "pay_vesting_period_days" : 1} false
+>>> create_worker "worker-name" "2015-10-28T00:00:00" "2015-10-29T00:00:00" 100000 "Description" "http://URL" {"
+>" : "vesting", "pay_vesting_period_days" : 1} false
 ```
 
 该网址应指向描述你的提案的内容。 我们建议您回答以下问题：
@@ -98,7 +99,7 @@
 * 你什么时候完成？
 * 多少钱？
 
-变量*type*可以是
+变量*类型*可以是
 
 * `退款`将你的回报退回到池中以用于未来的项目，	
 * `归属`支付你自己的费用，或者
