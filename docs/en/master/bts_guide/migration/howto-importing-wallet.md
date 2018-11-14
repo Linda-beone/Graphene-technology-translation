@@ -6,192 +6,106 @@
   
 ***  
 
-[BItShares Developers Portal](../../index.html) master
+# 导入你的钱包
 
-Introduction :
+目录
 
-* [Introduction & Architectures](../../intro/architectures.html)
-* [Development Environments](../../intro/environments.html)
-* [System Components Elements](../../components/components.html)
+* 网络钱包
+* CLI钱包
+  - 申请余额
+  - 手动申请余额
 
-Development
+## 网络钱包
 
-* [Getting Started](../../development/installation.html)
-* [BitShares Accounts](../accounts/bts_account.html)
-* [Integration Guide](../../development/integration.html)
-* [Blockchain Interaction](../../development/interaction.html)
-* [Testnets](../../development/testnets.html)
-* [Support and Optimizations](../../supports_dev/supports.html)
-* [BSIPs](../../development/bsip.html)
+BitShares 2.0的网络钱包有一个**钱包管理控制台**。 这将有助于你导入资金。 它可以通过BitShares 2.0访问：设置 - >钱包  
+  
+![](http://dev.bitshares.works/en/master/_images/wallet-management-console.png)
 
-Guides
+要导入现有帐户并申领所有资金，你需要选择`导入密钥`。
 
-* [Developer Guide (Tutorials)](../tutorials/index.html)
-* [Frequently Asked Questions (FAQ)](../index_faq.html)
-* [BitShares Developers' Contributions](../../references/tech_articles.html)
-* [Articles](../../references/tech_articles.html#articles)
-* [BitShares Repositories](../../references/githubrepo.html)
+ <table style="width: 750px;"><tbody>
+    <tr>
+        <td bgcolor="LightBlue">注意</td>
+    </tr>
+    <tr>
+        <td bgcolor="MintCream"> 如果使用无效格式加载文件文件，请确保你已按照[导出钱包](http://dev.bitshares.works/en/master/bts_guide/migration/howto-exporting-wallet.html)中所述的步骤操作，并确保单击导入密钥而不是还原备份。</td>
+    </tr>
+</table>
+  
+  
+![](http://dev.bitshares.works/en/master/_images/wallet-management-console-import-keys.png)
 
-API
+在这里，你可以提供从BitShares 0.9.3c和密码短语生成的钱包备份文件。 根据导入文件的大小，此步骤可能需要一些时间才能自动完成。 请耐心等待。
 
-* [1. API Guide](../../api/api_about.html)
-* [2. API Access and Restrictions](../../api/restrictions.html)
-* [3. Available Calls and Often used API](../../api/calls.html)
-* [4. Blockchain API(s)](../../api/blockchain_api.html)
-* [5. Wallet API - Calls](../../api/wallet_api.html)
-* [6. Objects and IDs](../../api/objects_ids.html)
-* [7. Graphene - Namespaces](../../api/namespaces.html)
+钱包将列出你的所有帐户，包括相应存储在帐户名称中的私钥数量。 你使用帐户的次数越多，此数字就越高。 按`导入`确认。  
+  
+![](http://dev.bitshares.works/en/master/_images/wallet-management-console-imported-keys.png)
 
-References
+钱包管理控制台现在将概述无人认领的余额。  
+  
+![](http://dev.bitshares.works/en/master/_images/wallet-management-console-claim-balances.png)
 
-* [BitShares Community](../../references/info_comunities.html)
-* [BitShares Blockchain](../../references/info_comunities.html#bitshares-blockchain)
-* [BitShares Community Events](../../references/info_bts_events.html)
-* [Glossary](../../knowledge_base/glossary.html)
-* [Knowledge Base](../../knowledge_base/index_kb.html)
+如果你点击`余额申领`，你将进入此屏幕。  
+  
+![](http://dev.bitshares.works/en/master/_images/wallet-management-console-claiming-balances.png)
 
-[BItShares Developers Portal](../../index.html)
+如果你有多个帐户，系统会要求你定义个人余额的存放位置。
 
-* [Docs](../../index.html) >>
-* Importing Your Wallet
-* [Edit on GitHub](https://github.com/bitshares/dev.bitshares.works/blob/master/docs/bts_guide/migration/howto-importing-wallet.rst)
+确认所有必需步骤后，你的帐户和余额将相应显示。
 
-***
+<table style="width: 750px;"><tbody>
+    <tr>
+        <td bgcolor="LightBlue">注意</td>
+    </tr>
+    <tr>
+        <td bgcolor="MintCream"> 导入帐户和余额后，我们建议对钱包做一次新的备份，钱包含账户的访问权限和相应的余额。</td>
+    </tr>
+</table>
 
-# Importing Your Wallet [¶](#importing-your-wallet "Permalink to this headline")
+## CLI钱包
 
-Contents
+钱包备份文件可以导入  
 
-* [Web Wallet](#web-wallet)
-* [CLI wallet](#cli-wallet)
-  - [Claiming Balances](#claiming-balances)
-  - [Manually claim balances](#manually-claim-balances)
+`>>> import_accounts <path to exported json> <password of wallet you exported from>`
 
-## [Web Wallet](#id1) [¶](#web-wallet "Permalink to this headline")
+请注意，这不会自动声明余额。
 
-The web wallet of BitShares 2.0 has a **Wallet management Console.** that will
-help you import your funds. It can be access via <cite>BitShares 2.0: Settings -> Wallets</cite>
+### 申请余额
 
-In order to import your existing accounts and claim all your funds you need to
-choose `<span class="pre">Import</span> <span class="pre">Keys</span>`.
+对于钱包中的每个帐户`<my_account_name>;`（运行`list_my_accounts`以查看它们）:  
+  
+`>>> import_accounts_keys /path/to/keys.json <my_password> <my_account_name> <my_account_name>`
 
-Note
+<table style="width: 750px;"><tbody>
+    <tr>
+        <td bgcolor="LightBlue">注意</td>
+    </tr>
+    <tr>
+        <td bgcolor="MintCream">在发布标记中，这将在导入的每个密钥后创建钱包的完整备份。 如果你有成千上万的密钥，这很慢，也占用了大量的磁盘空间。 在导入期间监视可用磁盘空间，并在必要时定期擦除备份以避免填满磁盘。 最新代码仅在导入所有密钥后保存你的钱包。</td>
+    </tr>
+</table>
 
-If loading the file files with `<span class="pre">invalid</span> <span class="pre">format</span>` please ensure that
-you have followed the steps described [Exporting Your Wallet](howto-exporting-wallet.html) and make
-sure to click `<span class="pre">Import</span> <span class="pre">Keys</span>` and **not** `<span class="pre">Restore</span> <span class="pre">Backup</span>`.
+上面的命令只会将你的密钥导入钱包，并且**不会**要求您的资金。 要申请您需要执行的资金:
 
-Here you can provide the wallet backup file produced from BitShares 0.9.3c and
-the pass phrase. Depending on the size of your import file, this step may take
-some time to auto-complete. Please be patient.
+`>>> import_balance <my_account_name> ["*"] true;`
 
-The wallet will list all of your accounts including the number of private keys
-stored in the account names accordingly. The more often you have used your
-account, the higher this number should be. Confirm by pressing `<span class="pre">Import</span>`.
+<table style="width: 750px;"><tbody>
+    <tr>
+        <td bgcolor="LightBlue">注意</td>
+    </tr>
+    <tr>
+        <td bgcolor="MintCream">如果要预览此声明交易，可以使用false替换true。 这样，交易就不会被广播。</td>
+    </tr>
+</table>
 
-The wallet management console will now give an overview over unclaimed balances.
-
-If you click on `<span class="pre">Balance</span> <span class="pre">Claim</span>` you will be brought to this screen.
-
-You are asked to define where to put your individual balances if you have
-multiple accounts.
-
-After confirming all required steps, your accounts and the balances should
-appear accordingly.
-
-Note
-
-After importing your accounts and balances, we recommend to make a
-new backup of your wallet that will then contain access to your newly
-imported accounts and corresponding balances.
-
-## [CLI wallet](#id2) [¶](#cli-wallet "Permalink to this headline")
-
-The wallet backup file can be imported by
-<pre><span>&gt;&gt;&gt; </span><span>import_accounts</span> <span>&lt;</span><span>path</span> <span>to</span> <span>exported</span> <span>json</span><span>&gt;</span> <span>&lt;</span><span>password</span> <span>of</span> <span>wallet</span> <span>you</span> <span>exported</span> <span>from</span><span>&gt;</span>
-</pre>
-
-Note that this doesn't automatically claim the balances.
-
-### [Claiming Balances](#id3) [¶](#claiming-balances "Permalink to this headline")
-
-For each account `<span class="pre"><my_account_name></span>` in your wallet (run `<span class="pre">list_my_accounts</span>` to see them)::
-<pre><span>&gt;&gt;&gt; </span><span>import_account_keys</span> <span>/</span><span>path</span><span>/</span><span>to</span><span>/</span><span>keys</span><span>.</span><span>json</span> <span>&lt;</span><span>my_password</span><span>&gt;</span> <span>&lt;</span><span>my_account_name</span><span>&gt;</span> <span>&lt;</span><span>my_account_name</span><span>&gt;</span>
-</pre>
-
-Note
-
-In the release tag, this will create a full backup of the wallet after every key it imports.
-If you have thousands of keys, this is quite slow and also takes up a lot of disk space.
-Monitor your free disk space during the import and, if necessary,
-periodically erase the backups to avoid filling your disk. The latest code
-only saves your wallet after all keys have been imported.
-
-The command above will only import your keys into the wallet and will **not**
-claim your funds. In order to claim the funds you need to execute::
-<pre><span>&gt;&gt;&gt; </span><span>import_balance</span> <span>&lt;</span><span>my_account_name</span><span>&gt;</span> <span>[</span><span>&quot;*&quot;</span><span>]</span> <span>true</span>
-</pre>
-
-Note
-
-If you would like to preview this claiming transaction, you can
-replace the `<span class="pre">true</span>` with a `<span class="pre">false</span>`. That way, the transaction will not be
-broadcast.
-
-To verify the results, you can run::
+要验证结果，你可以运行:
 <pre><span>&gt;&gt;&gt; </span><span>list_account_balances</span> <span>&lt;</span><span>my_account_name</span><span>&gt;</span>
 </pre>
 
-### [Manually claim balances](#id4) [¶](#manually-claim-balances "Permalink to this headline")
+### 手动申请余额
 
-Balances can be imported one by one. The proper syntax to do so is:
+余额可以逐个导入。 这样做的正确语法是：
 <pre><span>&gt;&gt;&gt; </span><span>import_balance</span> <span>&lt;</span><span>account</span> <span>name</span><span>&gt;</span> <span>&lt;</span><span>private</span> <span>key</span><span>&gt;</span> <span>true</span>
 </pre>
 
-But I always import my accounts and then use the GUI to import my balances cause
-it's way easier.
-
-***
-
-© Copyright 2018 BitShares Blockchain Foundation.
-
-          Revision `479cd19d`.
-
-Built with [Sphinx](http://sphinx-doc.org/) using a [theme](https://github.com/rtfd/sphinx_rtd_theme) provided by [Read the Docs](https://readthedocs.org) .
-
-      Read the Docs
-      v: master
-
-<dl>
-      <dt>Versions</dt>
-
-        <dd><a>latest</a></dd>
-
-        <dd><a>master</a></dd>
-
-    </dl>
-<dl>
-      <dt>Downloads</dt>
-
-        <dd><a>pdf</a></dd>
-
-        <dd><a>htmlzip</a></dd>
-
-        <dd><a>epub</a></dd>
-
-    </dl>
-<dl>
-      <dt>On Read the Docs</dt>
-        <dd>
-          <a>Project Home</a>
-        </dd>
-        <dd>
-          <a>Builds</a>
-        </dd>
-    </dl>
-
-***
-
-Free document hosting provided by [Read the Docs](http://www.readthedocs.org).
-
-
+但我总是导入我的帐户，然后使用GUI导入我的余额，因为它更容易。
