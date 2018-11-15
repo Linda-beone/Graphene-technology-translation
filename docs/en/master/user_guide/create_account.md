@@ -144,7 +144,7 @@ BitShares具有*owner*，*active*和*memo keys*。每个密钥都有_公钥和�
   
 ![](http://how.bitshares.works/en/master/_images/local-login2a.png)
 
-&gt; **您的网络浏览器是您的钱包：**请阅读以下信息。  
+&gt; **您的网络浏览器是您的钱包:** 请阅读以下信息。  
   
 ![](http://how.bitshares.works/en/master/_images/local-login2b.png)
 
