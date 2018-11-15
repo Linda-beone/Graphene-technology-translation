@@ -8,7 +8,9 @@
 
 # BitShares 文档  
   
-<center>![](http://how.bitshares.works/en/master/_images/bitshares-logo.png)</center>  
+<center>
+![](http://how.bitshares.works/en/master/_images/bitshares-logo.png)
+</center>  
 
 ***
 
