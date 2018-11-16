@@ -36,15 +36,32 @@
 
 这还要求费用池得到资助（例如由发行人）。由于BitShares中的所有价格都在内部表示为分数（即a/b），我们需要定义引用（UIA）和基数（BTS）之间的比率，即价格的分子和分母= a/b
 
-| Symbol: | The Symbol defined here will be reserved in the system for your assets. One the asset is created, the symbol cannot be changed again. |
-| Maximum Supply: | This is also a permanent setting and denotes the maximum amount of shares that can ever exist at the same time.       Please consult the Networks fees in the explorer! |
-| Number of Decimal Points: |
-|  | This is used to denoted the number of decimal places. A 0 will result in an asset that cannot be separated below integer amounts (e.g. 1, 2, ..) |
-| SmartCoin: | – |
-| Quote Asset Amount: |
-|  | Core exchange rate |
-| Base Asset Amount: |
-|  | Core exchange rate |
+<table>
+        <tr>
+            <td>符号：</td>
+            <td>处定义的符号将在系统中为您的资产保留。 创建一个资产，该符号不能再次更改。</td>
+        </tr>
+        <tr>
+            <td>最大供应量：</td>
+            <td>这也是永久性设置，表示可以同时存在的最大份额。 请参阅资源管理器中的网络费用！</td>
+        </tr>
+        <tr>
+            <td>小数点数：</td>
+            <td> 这用于表示小数位数。 0将导致资产无法分离到整数金额以下（例如1,2，...）</td>
+        </tr>
+        <tr>
+            <td>智能货币：</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>报价资产金额：</td>
+            <td>核心汇率</td>
+        </tr>
+        <tr>
+            <td>基础资产金额：</td>
+            <td>核心汇率</td>
+        </tr>
+</table>
 
  <table style="width: 750px;"><tbody>
     <tr>
@@ -59,11 +76,24 @@
 
 ![](http://dev.bitshares.works/en/master/_static/imgs/uia-ui-4-description.png)
 
-| Description: | description can be used to let everyone know the purpose of the asset, or an internet address for further information. |
-| Short Name: | Short Name is also a permanent setting and denotes the maximum amount. |
-| Preferred Market Pairing: |
-|  | – |
-| Asset Name: | – |
+<table>
+        <tr>
+            <td>描述：</td>
+            <td>描述可用于让每个人都知道资产的目的，或用于获取更多信息的互联网地址。</td>
+        </tr>
+        <tr>
+            <td>短名称</td>
+            <td>短名称也是永久设置，表示最大金额。</td>
+        </tr>
+        <tr>
+            <td>首选市场配对：</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>资产名称： </td>
+            <td>-</td>
+        </tr>
+</table>
 
 ### 权限（可选）    
 

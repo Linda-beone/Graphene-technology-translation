@@ -5,38 +5,34 @@
  **校对者**： 
 
 ***    
-  
 
-.. _uia-create-manual:
-
-Creating a UIA manually
+手动创建UIA
 ===========================
 
-Creating an Asset
+创建资产
 ----------------------
 
-.. or by manually constructing a transaction, signing and broadcasting
-   it (:doc:`construct-transaction`).
-.. CLI
-.. ###
 
-::
 
     >>> create_asset <issuer> <symbol> <precision> <options> {} false
 
-.. note:: A `false` at the end allows to check and verify the
-          constructed transaction and does **not** broadcast it.  The
-          empty `{}` could be used to construct a :doc:`../user/mpa` and
-          is subject of another tutorial.
+ <table style="width: 750px;"><tbody>
+    <tr>
+        <td bgcolor="LightBlue">注意</td>
+    </tr>
+    <tr>
+        <td bgcolor="MintCream">最后的假允许检查和验证构造的事务并且不广播它。 空{}可用于构造../user/mpa，并且是另一个教程的主题。</td>
+    </tr>
+</table>
 
-Parameters
-~~~~~~~~~
+# 参数
 
-The `precision` can any positive integer starting from `0`.
-As `options` we pass a JSON object that can contain these settings:
 
-.. code-block:: js
+`精度`可以是从0开始的任何正整数。作为选项，我们传递一个可以包含这些设置的**JSON*对象：
 
+
+
+```  
    {
       "max_supply" : 10000,    # Integer in satoshi! (100 for precision 1 and max 10)
       "market_fee_percent" : 0.3,
@@ -59,12 +55,10 @@ As `options` we pass a JSON object that can contain these settings:
       "blacklist_markets" : [],
       "description" : "My fancy description"
    }
+```  
+标志构造为包含这些标志/权限的JSON对象
 
-The flags are construction as an JSON object containing these
-flags/permissions 
-
-.. code-block:: js
-
+```
    {
       "charge_market_fee" : true,
       "white_list" : true,
@@ -76,30 +70,23 @@ flags/permissions
       "witness_fed_asset" : true,
       "committee_fed_asset" : true
    }
+```  
 
-Permissions and flags are modelled as sum of binary flags (see example
-below)
+权限和标志被建模为二进制标志的总和（参见下面的示例）
 
-- :ref:`asset-user-whitelists`
+- 资产用户白名单
 
-White-listing is described in more detail in
-:doc:`../../integration/asset-whitelist`.
+在../../integration/asset-whitelist中更详细地描述了白名单。
 
-Issuing Shares
-^^^^^^^^^^^^^^^^^^^
+# 发行股票
 
-After creation of the asset, no shares will be in existence until they
-are issued by the issuer:
-
-::
+创建资产后，在发行人发行股票之前不会存在任何股票：
 
     issue_asset <account> <amount> <symbol> <memo> True
   
 
-Python Example
-^^^^^^^^^^^^^^^^
-
-.. code-block:: python
+# Python 示例
+  
 
     from grapheneapi import GrapheneClient
     import json
@@ -175,7 +162,3 @@ Python Example
         tx = graphene.rpc.create_asset("nathan", "SYMBOL", 3, options, {}, True)
         print(json.dumps(tx, indent=4))
 
-		
-|
-
---------------------
