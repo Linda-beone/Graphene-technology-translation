@@ -90,68 +90,65 @@ signed_transaction <code>graphene::<a>wallet</a>::<a>wallet_api</a><code>::</cod
 <dl>
 <dt>
 <code>black_listed</code> = 0x2<a>;</a><br></dt>
-<dd><p>This account is blacklisted, but not whitelisted. </p>
+<dd><p>此帐户已列入黑名单，但未列入白名单。</p>
 </dd></dl>
 
 <dl>
 <dt>
 <code>white_and_black_listed</code> = white_listed | black_listed<a>;</a><br></dt>
-<dd><p>This account is both whitelisted and blacklisted. </p>
+<dd><p>此帐户已列入白名单并列入黑名单。</p>
 </dd></dl>
 
 </dd></dl>
 
 ***
 
-## [Asset Market Whitelists](#id3) [¶](#asset-market-whitelists "Permalink to this headline")
+## 资产市场白名单
 
-An issuer of an user-issued-asset may want to restrict trading partners for his
-assets for legal reasons. For instance, a gateway for US dollar may not be
-allowed to let his customers trade USD against CNY because additional licenses
-would be required. Hence, in BitShares 2.0 we let issuers chose to restrict
-trading partners with white- and black-lists.
+由于法律原因，用户发行资产的发行方可能希望限制贸易伙伴的资产。 例如，可能不允许美元网关让他的客户以人民币兑换美元，因为需要额外的许可证。 因此，在BitShares 2.0中，我们让发行人选择使用白名单和黑名单来限制贸易伙伴。
 
-**Example**
+**示例**
 
-A gateway with IOU `<span class="pre">G.USD</span>` that wants to prevent his customers from trading
-`<span class="pre">G.USD</span>` against `<span class="pre">bitCNY</span>` can do so by adding `<span class="pre">bitCNY</span>` to the blacklist of
-`<span class="pre">G.USD</span>` by issuing::
+IOU `G.USD`的网关想要防止他的客户针对`bitCNY`交易`G.USD`，可以通过发送将`bitCNY`添加到`G.USD`的黑名单中来实现这一点。
 
 ```
 >>> update_asset G.USD "" "{blacklist_markets:[CNY]}" true
 ```
 
-Alternatively, if an issuer may want to only open the market `<span class="pre">G.USD</span> <span class="pre">:</span> <span class="pre">bitUSD</span>`
-with his asset, he can do so as well with::
+或者，如果发行人可能只想用他的资产开立市场`G.USD：bitUSD`，他也可以这样做:
 
 ```
 >>> update_asset G.USD "" "{whitelist_markets:[USD]}" true
 ```
 
-Note
+ <table style="width: 750px;"><tbody>
+    <tr>
+        <td bgcolor="LightBlue">注意</td>
+    </tr>
+    <tr>
+        <td bgcolor="MintCream">update_asset的第三个参数替换现有设置。 确保存在所有所需的设置。</td>
+    </tr>
+</table>
 
-The third argument for `<span class="pre">update_asset</span>` replaces the existing
-settings. Make sure to have all desired settings present.
+**定义**
 
-**Definition**
-
-Asset Market white-lists work with the following API call:
+资产市场白名单使用以下API调用：
 
 <dl>
 <dt>
-signed_transaction <code>graphene::<a>wallet</a>::<a>wallet_api</a><code>::</code></code><code>update_asset</code><span>(</span>string <em>symbol</em>, optional&lt;string&gt; <em>new_issuer</em>, asset_options <em>new_options</em>, bool <em>broadcast</em> = false<span>)</span><br></dt>
-<dd><p>Update the core options on an asset. There are a number of options which all assets in the network use. These options are enumerated in the asset_object::asset_options struct. This command is used to update these options for an existing asset.</p>
+signed_transaction <code>graphene::<a>wallet</a>::<a>wallet_api</a><code>::</code></code><code>update_asset</code><span>(</span>string <em>symbol</em>, optional&lt;string&gt; <em>new_issuer</em>, asset_options <em>new_options</em>, bool <em>broadcast</em> = false<span>)</span><br></dt>  
+<dd><p>更新资产的核心选项。 网络中的所有资产都使用多种选项。 这些选项在asset_object :: asset_options结构中枚举。 此命令用于更新现有资产的这些选项。</p>
 <p><dl>
-<dt><strong>Note</strong></dt>
-<dd>This operation cannot be used to update BitAsset-specific options. For these options, <code><a><span><span>update_bitasset()</span></span></a></code> instead.</dd>
-<dt><strong>Return</strong></dt>
-<dd>the signed transaction updating the asset </dd>
-<dt><strong>Parameters</strong></dt>
+<dt><strong>注意</strong></dt>
+<dd>此操作不能用于更新BitAsset特定的选项。 对于这些选项，请改为update_bitasset（）。</dd>
+<dt><strong>返回</strong></dt>
+<dd>已签名的交易更新资产</dd>
+<dt><strong>参数</strong></dt>
 <dd><ul>
-<li><code><span>symbol</span></code>: the name or id of the asset to update </li>
-<li><code><span>new_issuer</span></code>: if changing the asset&#x2019;s issuer, the name or id of the new issuer. null if you wish to remain the issuer of the asset </li>
-<li><code><span>new_options</span></code>: the new asset_options object, which will entirely replace the existing options. </li>
-<li><code><span>broadcast</span></code>: true to broadcast the transaction on the network </li>
+<li><code><span>symbol</span></code>:要更新的资产的名称或ID</li>
+<li><code><span>new_issuer</span></code>:如果更改资产的发行人，新发行人的名称或身份。 如果您希望保留资产的发行人，则为null </li>
+<li><code><span>new_options</span></code>:新的asset_options对象，它将完全取代现有的选项。</li>
+<li><code><span>broadcast</span></code>:如果在网络上广播交易，则为true</li>
 </ul>
 </dd>
 </dl>
@@ -160,21 +157,21 @@ signed_transaction <code>graphene::<a>wallet</a>::<a>wallet_api</a><code>::</cod
 <dl>
 <dt>
 <em>struct </em><code>asset_options</code><br></dt>
-<dd><p>The <a><span>asset_options</span></a> struct contains options available on all assets in the network. </p>
+<dd><p>The <a><span>asset_options</span></a> asset_options结构包含网络中所有资产的可用选项。</p>
 <p><dl>
-<dt><strong>Note</strong></dt>
-<dd>Changes to this struct will break protocol compatibility </dd>
+<dt><strong>注意</strong></dt>
+<dd>对此结构的更改将破坏协议兼容性</dd>
 </dl>
 </p>
 <div>
-<p>Public Functions</p>
+<p>公共职能</p>
 <dl>
 <dt>
 void <code>validate</code><span>(</span><span>)</span> <em>const</em><br></dt>
-<dd><p>Perform internal consistency checks. <dl>
-<dt><strong>Exceptions</strong></dt>
+<dd><p>执行内部一致性检查。<dl>
+<dt><strong>异常</strong></dt>
 <dd><ul>
-<li><code><span>fc::exception</span></code>: if any check fails </li>
+<li><code><span>fc::exception</span></code>:如果任何检查失败</li>
 </ul>
 </dd>
 </dl>
@@ -183,71 +180,71 @@ void <code>validate</code><span>(</span><span>)</span> <em>const</em><br></dt>
 
 </div>
 <div>
-<p>Public Members</p>
+<p>公众成员</p>
 <dl>
 <dt>
 <a>share_type</a> <code>max_supply</code> = GRAPHENE_MAX_SHARE_SUPPLY<br></dt>
-<dd><p>The maximum supply of this asset which may exist at any given time. This can be as large as GRAPHENE_MAX_SHARE_SUPPLY </p>
+<dd><p>在任何给定时间可能存在的此资产的最大供应量。 这可以与GRAPHENE_MAX_SHARE_SUPPLY一样大</p>
 </dd></dl>
 
 <dl>
 <dt>
 uint16_t <code>market_fee_percent</code> = 0<br></dt>
-<dd><p>When this asset is traded on the markets, this percentage of the total traded will be exacted and paid to the issuer. This is a fixed point value, representing hundredths of a percent, i.e. a value of 100 in this field means a 1% fee is charged on market trades of this asset. </p>
+<dd><p>当该资产在市场上交易时，该交易总额的这一百分比将被提取并支付给发行人。 这是一个固定点值，代表百分之一百，即该字段中的值100意味着对该资产的市场交易收取1％的费用。 </p>
 </dd></dl>
 
 <dl>
 <dt>
 <a>share_type</a> <code>max_market_fee</code> = GRAPHENE_MAX_SHARE_SUPPLY<br></dt>
-<dd><p>Market fees calculated as <a><span>market_fee_percent</span></a> of the traded volume are capped to this value. </p>
+<dd><p>按交易量的market_fee_percen计算的市场费用上限为此值。 </p>
 </dd></dl>
 
 <dl>
 <dt>
 uint16_t <code>issuer_permissions</code> = UIA_ASSET_ISSUER_PERMISSION_MASK<br></dt>
-<dd><p>The flags which the issuer has permission to update. See <a><span>asset_issuer_permission_flags</span></a>. </p>
+<dd><p>发行人有权更新的标志。 请参阅asset_issuer_permission_flags。</p>
 </dd></dl>
 
 <dl>
 <dt>
 uint16_t <code>flags</code> = 0<br></dt>
-<dd><p>The currently active flags on this permission. See <a><span>asset_issuer_permission_flags</span></a>. </p>
+<dd><p>此权限上当前有效的标志。 请参阅asset_issuer_permission_flags。</p>
 </dd></dl>
 
 <dl>
 <dt>
 <a>price</a> <code>core_exchange_rate</code> = <a><span>price</span></a>(<a><span>asset</span></a>(), <a><span>asset</span></a>(0, <a><span>asset_id_type</span></a>(1)))<br></dt>
-<dd><p>When a non-core asset is used to pay a fee, the blockchain must convert that asset to core asset in order to accept the fee. If this asset&#x2019;s fee pool is funded, the chain will automatically deposite fees in this asset to its accumulated fees, and withdraw from the fee pool the same amount as converted at the core exchange rate. </p>
+<dd><p>当非核心资产用于支付费用时，区块链必须将该资产转换为核心资产才能接受该费用。 如果该资产的费用池被资助，该链将自动将该资产的费用存入其累计费用，并从费用池中提现与核心汇率相同的金额。</p>
 </dd></dl>
 
 <dl>
 <dt>
 flat_set&lt;<a>account_id_type</a>&gt; <code>whitelist_authorities</code><br></dt>
-<dd><p>A set of accounts which maintain whitelists to consult for this asset. If whitelist_authorities is non-empty, then only accounts in whitelist_authorities are allowed to hold, use, or transfer the asset. </p>
+<dd><p>一组帐户，用于维护白名单以查询此资产。 如果whitelist_authorities非空，则只允许whitelist_authorities中的帐户保留，使用或转移资产。</p>
 </dd></dl>
 
 <dl>
 <dt>
 flat_set&lt;<a>account_id_type</a>&gt; <code>blacklist_authorities</code><br></dt>
-<dd><p>A set of accounts which maintain blacklists to consult for this asset. If flags &amp; white_list is set, an account may only send, receive, trade, etc. in this asset if none of these accounts appears in its <a><span>account_object::blacklisting_accounts</span></a> field. If the account is blacklisted, it may not transact in this asset even if it is also whitelisted. </p>
+<dd><p>一组帐户，用于维护黑名单以查询此资产。 如果设置了flags＆white_list，则帐户只能在此资产中发送，接收，交易等，如果这些帐户中没有一个出现在其account_object :: blacklisting_accounts字段中。 如果该帐户被列入黑名单，即使该帐户也列入白名单，它也不会在此资产中进行交易。 </p>
 </dd></dl>
 
 <dl>
 <dt>
 flat_set&lt;<a>asset_id_type</a>&gt; <code>whitelist_markets</code><br></dt>
-<dd><p>defines the assets that this asset may be traded against in the market </p>
+<dd><p>定义此资产可在市场上交易的资产</p>
 </dd></dl>
 
 <dl>
 <dt>
 flat_set&lt;<a>asset_id_type</a>&gt; <code>blacklist_markets</code><br></dt>
-<dd><p>defines the assets that this asset may not be traded against in the market, must not overlap whitelist </p>
+<dd><p>定义此资产可能无法在市场上交易的资产，不得与白名单重叠 </p>
 </dd></dl>
 
 <dl>
 <dt>
 string <code>description</code><br></dt>
-<dd><p>data that describes the meaning/purpose of this asset, fee will be charged proportional to size of description. </p>
+<dd><p>描述此资产的含义/目的的数据，费用将按描述的大小成比例收取。 </p>
 </dd></dl>
 
 </div>
@@ -255,137 +252,130 @@ string <code>description</code><br></dt>
 <dl>
 <dt>
 <em>enum </em><code>graphene::<a>chain</a><code>::</code></code><code>asset_issuer_permission_flags</code><br></dt>
-<dd><p><em>Values:</em></p>
+<dd><p><em>值:</em></p>
 <dl>
 <dt>
 <code>charge_market_fee</code> = 0x01<br></dt>
-<dd><p>an issuer-specified percentage of all market trades in this asset is paid to the issuer </p>
+<dd><p>发行人指定的资产中所有市场交易的百分比支付给发行人</p>
 </dd></dl>
 
 <dl>
 <dt>
 <code>white_list</code> = 0x02<br></dt>
-<dd><p>accounts must be whitelisted in order to hold this asset </p>
+<dd><p>帐户必须列入白名单才能持有此资产</p>
 </dd></dl>
 
 <dl>
 <dt>
 <code>override_authority</code> = 0x04<br></dt>
-<dd><p>issuer may transfer asset back to himself </p>
+<dd><p>发行人可以将资产转回给自己</p>
 </dd></dl>
 
 <dl>
 <dt>
 <code>transfer_restricted</code> = 0x08<br></dt>
-<dd><p>require the issuer to be one party to every transfer </p>
+<dd><p>要求发行人是每次转移的一方</p>
 </dd></dl>
 
 <dl>
 <dt>
 <code>disable_force_settle</code> = 0x10<br></dt>
-<dd><p>disable force settling </p>
+<dd><p>禁止强清</p>
 </dd></dl>
 
 <dl>
 <dt>
 <code>global_settle</code> = 0x20<br></dt>
-<dd><p>allow the bitasset issuer to force a global settling  this may be set in permissions, but not flags </p>
+<dd><p>允许bitasset发行者强制全球设置，这可以在权限中设置，但不能设置标志</p>
 </dd></dl>
 
 <dl>
 <dt>
 <code>disable_confidential</code> = 0x40<br></dt>
-<dd><p>allow the asset to be used with confidential transactions </p>
+<dd><p>允许资产与机密交易一起使用</p>
 </dd></dl>
 
 <dl>
 <dt>
 <code>witness_fed_asset</code> = 0x80<br></dt>
-<dd><p>allow the asset to be fed by witnesses </p>
+<dd><p>允许资产由见证人提供</p>
 </dd></dl>
 
 <dl>
 <dt>
 <code>committee_fed_asset</code> = 0x100<br></dt>
-<dd><p>allow the asset to be fed by the committee </p>
+<dd><p>允许资产由委员会提供 </p>
 </dd></dl>
 
 </dd></dl>
 
 ***
 
-## [Asset User Whitelists](#id4) [¶](#asset-user-whitelists "Permalink to this headline")
+## 资产用户白名单
 
-Asset User white- and black-lists serve the need for companies to restrict
-service to a subset of accounts. For instance, a fiat gateway may require
-to follow KYC/AML regulations and can hence only deal with those
-customers that have been verified accordingly. If the issuer of an user-issued
-asset desires, he may set a restriction so that only users on the white-list
-(and/or **not** on the blacklist) are allowed to hold his token.
+资产用户白名单和黑名单满足了公司将服务限制为一部分帐户服务的需求。 例如，法定网关可能需要遵守KYC/AML法规，因此只能处理已经相应验证的客户。 如果用户发行资产的发行者需要，他可以设置限制，以便只允许白名单上（和/或黑名单上的用户）持有他的代币。
 
-Instead of putting all verified accounts into the respective asset's white-list
-directly, BitShares 2.0 allows to define one or several white-list
-_authorities_. In practice, the white- and black-lists of these accounts are
-combined and serve as white- and black-lists for the asset.
+BitShares 2.0不是直接将所有已验证的帐户放入相应资产的白名单，而是允许定义一个或多个白名单权限。 在实践中，这些帐户的白名单和黑名单被合并，并作为资产的白名单和黑名单。
 
-This allows for easy out-sourcing of KYC/AML verification to 3rd-party
-providers.
+这样可以轻松地将KYC/AML验证外包给第三方提供商。
 
-Note
+ <table style="width: 750px;"><tbody>
+    <tr>
+        <td bgcolor="LightBlue">注意</td>
+    </tr>
+    <tr>
+        <td bgcolor="MintCream">通过从白名单中删除用户，可以有效地冻结资金。</td>
+    </tr>
+</table>
 
-By removing a user from the whitelist, funds can effectively be
-frozen.
+**示例**
 
-**Example**
+让我们假设用户`alice`想要拥有一个名为`G.USD`的网关IOU，它受到白名单的限制。 在能够拥有`G.USD`之前，`alice`需要由`G.USD`的一个授权者列入白名单。
 
-Let's assume user `<span class="pre">alice</span>` wants to own a gateways IOUs called `<span class="pre">G.USD</span>` which are
-restricted by a whitelists. Before being able to own `<span class="pre">G.USD</span>`, `<span class="pre">alice</span>` needs
-to be white-listed by one of the authorities of `<span class="pre">G.USD</span>`.
+### 定义资产的列表权限
 
-### [Defining an asset's list authorities](#id5) [¶](#defining-an-asset-s-list-authorities "Permalink to this headline")
-
-We now define the authorities (i.e. accounts) that define the white- and
-blacklist of the asset `<span class="pre">G.USD</span>`. We add `<span class="pre">g-issuer</span>` and `<span class="pre">kycprovider</span>` to
-the white- and black-list::
+我们现在定义用于定义资产`G.USD`的白名单和黑名单的权限（即帐户）。 我们将`g-issuer`和`kycprovider`添加到白名单和黑名单:
 
 ```
 >>> update_asset G.USD "" "{blacklist_authorities:[g-issuer, kycprovider], whitelist_authorities:[g-issuer, kycprovider], flags:white_list}" true
 ```
 
-Note
+ <table style="width: 750px;"><tbody>
+    <tr>
+        <td bgcolor="LightBlue">注意</td>
+    </tr>
+    <tr>
+        <td bgcolor="MintCream">update_asset的第三个参数替换现有设置。 确保所需的设置。</td>
+    </tr>
+</table>
 
-The third argument for `<span class="pre">update_asset</span>` replaces the existing
-settings. Make sure to have all desired settings present.
+### 将`alice`添加到白名单
 
-### [Adding `<span class="pre">alice</span>` to a whitelist](#id6) [¶](#adding-alice-to-a-whitelist "Permalink to this headline")
-
-Let's assume the only authority is the issuer `<span class="pre">g-issuer</span>` himself for
-simplicity. The issuer now needs to add `<span class="pre">alice</span>` to `<span class="pre">g-issuer</span>`'s account
-whitelist::
+让我们假设唯一的权威是发行人`g-issuer`本人为了简单起见。 发行人现在需要添加`alice`到`g-issuer`的帐户白名单:
 
 ```
 >>> whitelist_account g-issuer alice white_listed true
 ```
 
-**Definition**
+**定义**
 
-White- and Black-listing of assets works with the following API call:
+资产的白名单和黑名单使用以下API调用：
 
 <dl>
 <dt>
 signed_transaction <code>graphene::<a>wallet</a>::<a>wallet_api</a><code>::</code></code><code>update_asset</code><span>(</span>string <em>symbol</em>, optional&lt;string&gt; <em>new_issuer</em>, asset_options <em>new_options</em>, bool <em>broadcast</em> = false<span>)</span><br></dt>
-<dd><p>Update the core options on an asset. There are a number of options which all assets in the network use. These options are enumerated in the asset_object::asset_options struct. This command is used to update these options for an existing asset.</p>
+<dd><p>更新资产的核心选项。 网络中的所有资产都使用多种选项。 这些选项在asset_object :: asset_options结构中枚举。 此命令用于更新现有资产的这些选项。</p>
 <p><dl>
-<dt><strong>Note</strong></dt>
-<dd>This operation cannot be used to update BitAsset-specific options. For these options, <code><a><span><span>update_bitasset()</span></span></a></code> instead.</dd>
-<dt><strong>Return</strong></dt>
-<dd>the signed transaction updating the asset </dd>
-<dt><strong>Parameters</strong></dt>
+<dt><strong>注意</strong></dt>
+<dd>此操作不能用于更新BitAsset特定的选项。 对于这些选项，请改为update_bitasset（）。</dd>
+<dt><strong>返回</strong></dt>
+<dd>已签名的交易更新资产</dd>
+<dt><strong>参数</strong></dt>
 <dd><ul>
-<li><code><span>symbol</span></code>: the name or id of the asset to update </li>
-<li><code><span>new_issuer</span></code>: if changing the asset&#x2019;s issuer, the name or id of the new issuer. null if you wish to remain the issuer of the asset </li>
-<li><code><span>new_options</span></code>: the new asset_options object, which will entirely replace the existing options. </li>
-<li><code><span>broadcast</span></code>: true to broadcast the transaction on the network </li>
+<li><code><span>symbol</span></code>: 要更新的资产的名称或ID </li>
+<li><code><span>new_issuer</span></code>: 如果更改资产的发行人，新发行人的名称或身份。 如果您希望保留资产的发行人，则为null</li>
+<li><code><span>new_options</span></code>: 新的asset_options对象，它将完全取代现有的选项。</li>
+<li><code><span>broadcast</span></code>: 如果在网络上广播交易，则为true</li>
 </ul>
 </dd>
 </dl>
@@ -394,21 +384,21 @@ signed_transaction <code>graphene::<a>wallet</a>::<a>wallet_api</a><code>::</cod
 <dl>
 <dt>
 <em>struct </em><code>asset_options</code><br></dt>
-<dd><p>The <a><span>asset_options</span></a> struct contains options available on all assets in the network. </p>
+<dd><p>The <a><span>asset_options</span></a>asset_options结构包含网络中所有资产的可用选项。</p>
 <p><dl>
-<dt><strong>Note</strong></dt>
-<dd>Changes to this struct will break protocol compatibility </dd>
+<dt><strong>注意</strong></dt>
+<dd>对此结构的更改将破坏协议兼容性</dd>
 </dl>
 </p>
 <div>
-<p>Public Functions</p>
+<p>公共职能</p>
 <dl>
 <dt>
 void <code>validate</code><span>(</span><span>)</span> <em>const</em><br></dt>
-<dd><p>Perform internal consistency checks. <dl>
-<dt><strong>Exceptions</strong></dt>
+<dd><p>执行内部一致性检查。<dl>
+<dt><strong>异常</strong></dt>
 <dd><ul>
-<li><code><span>fc::exception</span></code>: if any check fails </li>
+<li><code><span>fc::exception</span></code>: 如果任何检查失败</li>
 </ul>
 </dd>
 </dl>
@@ -417,71 +407,87 @@ void <code>validate</code><span>(</span><span>)</span> <em>const</em><br></dt>
 
 </div>
 <div>
-<p>Public Members</p>
+<p>公共职能</p>
+<dl>
+<dt>
+void <code>validate</code><span>(</span><span>)</span> <em>const</em><br></dt>
+<dd><p>执行内部一致性检查。<dl>
+<dt><strong>异常</strong></dt>
+<dd><ul>
+<li><code><span>fc::exception</span></code>:如果任何检查失败</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div>
+<p>公众成员</p>
 <dl>
 <dt>
 <a>share_type</a> <code>max_supply</code> = GRAPHENE_MAX_SHARE_SUPPLY<br></dt>
-<dd><p>The maximum supply of this asset which may exist at any given time. This can be as large as GRAPHENE_MAX_SHARE_SUPPLY </p>
+<dd><p>在任何给定时间可能存在的此资产的最大供应量。 这可以与GRAPHENE_MAX_SHARE_SUPPLY一样大</p>
 </dd></dl>
 
 <dl>
 <dt>
 uint16_t <code>market_fee_percent</code> = 0<br></dt>
-<dd><p>When this asset is traded on the markets, this percentage of the total traded will be exacted and paid to the issuer. This is a fixed point value, representing hundredths of a percent, i.e. a value of 100 in this field means a 1% fee is charged on market trades of this asset. </p>
+<dd><p>当该资产在市场上交易时，该交易总额的这一百分比将被提取并支付给发行人。 这是一个固定点值，代表百分之一百，即该字段中的值100意味着对该资产的市场交易收取1％的费用。 </p>
 </dd></dl>
 
 <dl>
 <dt>
 <a>share_type</a> <code>max_market_fee</code> = GRAPHENE_MAX_SHARE_SUPPLY<br></dt>
-<dd><p>Market fees calculated as <a><span>market_fee_percent</span></a> of the traded volume are capped to this value. </p>
+<dd><p>按交易量的market_fee_percen计算的市场费用上限为此值。 </p>
 </dd></dl>
 
 <dl>
 <dt>
 uint16_t <code>issuer_permissions</code> = UIA_ASSET_ISSUER_PERMISSION_MASK<br></dt>
-<dd><p>The flags which the issuer has permission to update. See <a><span>asset_issuer_permission_flags</span></a>. </p>
+<dd><p>发行人有权更新的标志。 请参阅asset_issuer_permission_flags。</p>
 </dd></dl>
 
 <dl>
 <dt>
 uint16_t <code>flags</code> = 0<br></dt>
-<dd><p>The currently active flags on this permission. See <a><span>asset_issuer_permission_flags</span></a>. </p>
+<dd><p>此权限上当前有效的标志。 请参阅asset_issuer_permission_flags。</p>
 </dd></dl>
 
 <dl>
 <dt>
 <a>price</a> <code>core_exchange_rate</code> = <a><span>price</span></a>(<a><span>asset</span></a>(), <a><span>asset</span></a>(0, <a><span>asset_id_type</span></a>(1)))<br></dt>
-<dd><p>When a non-core asset is used to pay a fee, the blockchain must convert that asset to core asset in order to accept the fee. If this asset&#x2019;s fee pool is funded, the chain will automatically deposite fees in this asset to its accumulated fees, and withdraw from the fee pool the same amount as converted at the core exchange rate. </p>
+<dd><p>当非核心资产用于支付费用时，区块链必须将该资产转换为核心资产才能接受该费用。 如果该资产的费用池被资助，该链将自动将该资产的费用存入其累计费用，并从费用池中提现与核心汇率相同的金额。</p>
 </dd></dl>
 
 <dl>
 <dt>
 flat_set&lt;<a>account_id_type</a>&gt; <code>whitelist_authorities</code><br></dt>
-<dd><p>A set of accounts which maintain whitelists to consult for this asset. If whitelist_authorities is non-empty, then only accounts in whitelist_authorities are allowed to hold, use, or transfer the asset. </p>
+<dd><p>一组帐户，用于维护白名单以查询此资产。 如果whitelist_authorities非空，则只允许whitelist_authorities中的帐户保留，使用或转移资产。</p>
 </dd></dl>
 
 <dl>
 <dt>
 flat_set&lt;<a>account_id_type</a>&gt; <code>blacklist_authorities</code><br></dt>
-<dd><p>A set of accounts which maintain blacklists to consult for this asset. If flags &amp; white_list is set, an account may only send, receive, trade, etc. in this asset if none of these accounts appears in its <a><span>account_object::blacklisting_accounts</span></a> field. If the account is blacklisted, it may not transact in this asset even if it is also whitelisted. </p>
+<dd><p>一组帐户，用于维护黑名单以查询此资产。 如果设置了flags＆white_list，则帐户只能在此资产中发送，接收，交易等，如果这些帐户中没有一个出现在其account_object :: blacklisting_accounts字段中。 如果该帐户被列入黑名单，即使该帐户也列入白名单，它也不会在此资产中进行交易。 </p>
 </dd></dl>
 
 <dl>
 <dt>
 flat_set&lt;<a>asset_id_type</a>&gt; <code>whitelist_markets</code><br></dt>
-<dd><p>defines the assets that this asset may be traded against in the market </p>
+<dd><p>定义此资产可在市场上交易的资产</p>
 </dd></dl>
 
 <dl>
 <dt>
 flat_set&lt;<a>asset_id_type</a>&gt; <code>blacklist_markets</code><br></dt>
-<dd><p>defines the assets that this asset may not be traded against in the market, must not overlap whitelist </p>
+<dd><p>定义此资产可能无法在市场上交易的资产，不得与白名单重叠 </p>
 </dd></dl>
 
 <dl>
 <dt>
 string <code>description</code><br></dt>
-<dd><p>data that describes the meaning/purpose of this asset, fee will be charged proportional to size of description. </p>
+<dd><p>描述此资产的含义/目的的数据，费用将按描述的大小成比例收取。 </p>
 </dd></dl>
 
 </div>
@@ -489,102 +495,57 @@ string <code>description</code><br></dt>
 <dl>
 <dt>
 <em>enum </em><code>graphene::<a>chain</a><code>::</code></code><code>asset_issuer_permission_flags</code><br></dt>
-<dd><p><em>Values:</em></p>
+<dd><p><em>值:</em></p>
 <dl>
 <dt>
 <code>charge_market_fee</code> = 0x01<br></dt>
-<dd><p>an issuer-specified percentage of all market trades in this asset is paid to the issuer </p>
+<dd><p>发行人指定的资产中所有市场交易的百分比支付给发行人</p>
 </dd></dl>
 
 <dl>
 <dt>
 <code>white_list</code> = 0x02<br></dt>
-<dd><p>accounts must be whitelisted in order to hold this asset </p>
+<dd><p>帐户必须列入白名单才能持有此资产</p>
 </dd></dl>
 
 <dl>
 <dt>
 <code>override_authority</code> = 0x04<br></dt>
-<dd><p>issuer may transfer asset back to himself </p>
+<dd><p>发行人可以将资产转回给自己</p>
 </dd></dl>
 
 <dl>
 <dt>
 <code>transfer_restricted</code> = 0x08<br></dt>
-<dd><p>require the issuer to be one party to every transfer </p>
+<dd><p>要求发行人是每次转移的一方</p>
 </dd></dl>
 
 <dl>
 <dt>
 <code>disable_force_settle</code> = 0x10<br></dt>
-<dd><p>disable force settling </p>
+<dd><p>禁止强清</p>
 </dd></dl>
 
 <dl>
 <dt>
 <code>global_settle</code> = 0x20<br></dt>
-<dd><p>allow the bitasset issuer to force a global settling  this may be set in permissions, but not flags </p>
+<dd><p>允许bitasset发行者强制全球设置，这可以在权限中设置，但不能设置标志</p>
 </dd></dl>
 
 <dl>
 <dt>
 <code>disable_confidential</code> = 0x40<br></dt>
-<dd><p>allow the asset to be used with confidential transactions </p>
+<dd><p>允许资产与机密交易一起使用</p>
 </dd></dl>
 
 <dl>
 <dt>
 <code>witness_fed_asset</code> = 0x80<br></dt>
-<dd><p>allow the asset to be fed by witnesses </p>
+<dd><p>允许资产由见证人提供</p>
 </dd></dl>
 
 <dl>
 <dt>
 <code>committee_fed_asset</code> = 0x100<br></dt>
-<dd><p>allow the asset to be fed by the committee </p>
+<dd><p>允许资产由委员会提供 </p>
 </dd></dl>
-
-</dd></dl>[Next](../interaction.html "Blockchain Interaction") [Previous](supporting_features.html "Supporting Features")
-
-***
-
-© Copyright 2018 BitShares Blockchain Foundation.
-
-          Revision `71213459`.
-
-Built with [Sphinx](http://sphinx-doc.org/) using a [theme](https://github.com/rtfd/sphinx_rtd_theme) provided by [Read the Docs](https://readthedocs.org) .
-
-      Read the Docs
-      v: master
-
-<dl>
-      <dt>Versions</dt>
-
-        <dd><a>latest</a></dd>
-
-        <dd><a>master</a></dd>
-
-    </dl>
-<dl>
-      <dt>Downloads</dt>
-
-        <dd><a>pdf</a></dd>
-
-        <dd><a>htmlzip</a></dd>
-
-        <dd><a>epub</a></dd>
-
-    </dl>
-<dl>
-      <dt>On Read the Docs</dt>
-        <dd>
-          <a>Project Home</a>
-        </dd>
-        <dd>
-          <a>Builds</a>
-        </dd>
-    </dl>
-
-***
-
-Free document hosting provided by [Read the Docs](http://www.readthedocs.org).
