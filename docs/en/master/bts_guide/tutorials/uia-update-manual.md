@@ -4,33 +4,33 @@
  
  **校对者**： 
 
-***  
-  
+*** 
 
-.. _uia-update-manual:
-
-Update/Change an existing UIA
+更新/更改现有的UIA
 ==================================
 
-A UIA can be modified by the issuer after creation. For this, a
-separated call ``update_asset`` has been created.
+创建后，发行人可以修改UIA。 为此，已创建单独的调用`update_asset`。
 
-What can and cannot be changed
+什么可以和不可以改变
 --------------------------------
 
-Except for 
+除了
 
-* Symbol
-* Precision,
+* 符号
+* 精度，
 
-every parameter, option or setting can be updates.
+每个参数，选项或设置都可以更新。
 
-.. note:: Once a permission is removed, it can not be re-enabled again!
+ <table style="width: 750px;"><tbody>
+    <tr>
+        <td bgcolor="LightBlue">注意</td>
+    </tr>
+    <tr>
+        <td bgcolor="MintCream">删除权限后，无法再次重新启用该权限！</td>
+    </tr>
+</table>
 
-Python Example
-^^^^^^^^^^^^^^^^
-
-.. code-block:: python
+## Python 示例
 
     from grapheneapi import GrapheneClient
     import json
@@ -105,9 +105,4 @@ Python Example
 
         tx = graphene.rpc.update_asset("SYMBOL", None, options, True)
         print(json.dumps(tx, indent=4))
-
-		
-|
-
---------------------
 		

@@ -4,33 +4,31 @@
  
  **校对者**： 
 
-***    
-  
+***   
 
-
-.. _mpa-create-manual:
-
-
-Creating a MPA manually
+手动创建MPA
 =================================
 
-We can create a MPA manually:: 
+我们可以手动创建MPA：
 
     >>> create_asset <issuer> <symbol> <precision> <options> <mpaoptions> false
 
-.. note:: A `false` at the end allows to check and verify the
-          constructed transaction and does **not** broadcast it. The
-          main difference between create a UIA and a MPA is
-          ``<mpaoptions>``!
+ <table style="width: 750px;"><tbody>
+    <tr>
+        <td bgcolor="LightBlue">注意</td>
+    </tr>
+    <tr>
+        <td bgcolor="MintCream">最后的假允许检查和验证构造的交易并且不广播它。 创建UIA和MPA之间的主要区别是<mpaoptions>！</td>
+    </tr>
+</table>
 
-All options (except for ``mpaoptions`` are similar to creating a UIA as described in a separate tutorial (:doc:`uia-create-manual`).
+所有选项（除了`mpaoptions`类似于创建UIA，如单独教程[手动创建UIA](http://dev.bitshares.works/en/master/bts_guide/tutorials/uia-create-manual.html)中所述）。
 
-MPA-specific settings
+MPA特定设置
 -------------------------
 
-In order to create a MPA, we need to define some MPA-specific parameters:
+为了创建MPA，我们需要定义一些MPA特定参数：
 
-.. code-block:: js
 
       {
        "feed_lifetime_sec" : 60 * 60 * 24,
@@ -43,10 +41,7 @@ In order to create a MPA, we need to define some MPA-specific parameters:
 
 
 
-Python Example
-~~~~~~~~~~~~~~~~~~
-
-.. code-block:: python
+Python 示例
 
     from grapheneapi import GrapheneClient
     import json
@@ -130,9 +125,4 @@ Python Example
 
         tx = graphene.rpc.create_asset("nathan", "BITSYMBOL", 3, options, mpaoptions, True)
         print(json.dumps(tx, indent=4))
-		
-		
-|
-
---------------------
 		

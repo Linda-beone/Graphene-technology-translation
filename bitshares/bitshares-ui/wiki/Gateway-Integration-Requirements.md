@@ -6,25 +6,24 @@
 
 ***  
   
-### **<center>PLEASE BE AWARE THAT THIS IS A WORK IN PROGRESS AND CURRENTLY NEEDS VALIDATION</center>**
+### **请注意，这是一项正在进行的工作，目前需要进行验证**
 
-# Gateway Integration
+# 网关集成
 
-This document will describe how an exchange can integrate their services to the Bitshares UI Reference Wallet in a simple and controlled manner.
-The exchange has to provide a few API calls, where this document will go through the requirements of these.
+本文档将描述交易所如何以简单且受控的方式将其服务集成到Bitshares UI Reference Wallet。 交易所必须提供一些API调用，本文档将满足这些要求。
 
-## Required API calls
+## 必需的API调用
 
-There are five API calls that are required.
+需要五个API调用。
 
-### 1. Available Coins
+### 1. 可用代币
 
-Returns a JSON array containing all assets and backed assets.
+返回包含所有资产和支持资产的JSON数组。
 
-For example, if the gateway exchange supports Bitcoin, lets call them DAC.xxx assets, it should include the following two entries.
+例如，如果网关交易所支持比特币，我们称之为DAC.xxx资产，它应该包括以下两个条目。
 
-#### NOTES
-The walletSymbol on the real asset needs to have the same name as the backing asset name. Example: `walletSymbol: BTC` corresponds to the backed asset `DAC.BTC` 
+#### 笔记
+实际资产上的walletSymbol需要与支持资产名称具有相同的名称。 示例`：walletSymbol：BTC`对应于支持的资产`DAC.BTC`
 
 ```
 object = {
@@ -72,9 +71,9 @@ object = {
 }
 ```
 
-### 2. Available Tradeable Assets
+### 2. 可用的可交易资产
 
-The second API call we require is a list of corresponding tradeable assets. This should also return one entry for the coin and the backing coin.
+我们要求的第二个API调用是相应可交易资产的列表。 这也应该返回代币和支持代币的一个条目。
 
 ```
 object = {
@@ -90,37 +89,37 @@ object = {
 }
 ```
 
-### 3. Available Wallets
+### 3. 可用钱包
 
-The third API call we require is a list of available coin wallets. This will make sure that only assets with a `walletType` entry available in this list is enabled. This makes the gateway exchange disable wallets and make sure users can't deposit or withdraw assets during maintenance periods.
+我们要求的第三个API调用是可用代币钱包列表。 这将确保仅启用此列表中具有`walletType`条目的资产。 这使网关交易所可以禁用钱包，并确保用户在维护期间不能存入或取出资产。
 
 ```
 ["btc","muse","incnt","esc","xdrac"]
 ```
 
-### 4. Address Validation  
+### 4. 地址验证 
 
-The fourth API call required is an address validation
+需要的第四个API调用是地址验证
 
-The address should be situated at the address of `/wallets/<walletType>/address-validator?address=<address>`
+地址应位于 `/wallets/<walletType>/address-validator?address=<address>`
 
-- `walletType` element is the walletType from the coins list.
-- `address` element is the supplied user address the UI required validation.
+- `walletType` element是代币列表中的walletType。
+- `address` element是UI所需的验证提供的用户地址。
 
-The response should return the following if the address is valid
+如果地址有效，则响应应返回以下内容
 
 ```
 isValid: true
 ```
 
 
-### 5. Address Generator
+### 5. 地址生成器
 
-The fifth API call required is an address generator
+需要的第五个API调用是地址生成器
 
-This address should be situated at the address of `/simple-api/initiate-trade` and accept a POST query.
+该地址应位于`/simple-api/initiate-trade` 并接受POST查询。
 
-The POST query will be the following format
+POST查询将采用以下格式
 
 ```
 inputCoinType: html
@@ -128,7 +127,7 @@ outputAddress: userBitSharesAccountName
 outputCoinType: open.html
 ```
 
-The response should return a coin wallet address for the user to deposit to. If a memo should be used, this should be included as well.
+响应应返回代币钱包地址供用户存入。 如果使用备注，也应该包括备注。
 
 ```
 {
@@ -141,18 +140,18 @@ The response should return a coin wallet address for the user to deposit to. If 
   "comment": ""
 }
 ```
-### 6. Withdrawl Memo
-When a user initiates a withdrawl, the wallet will generate a TX with a memo containing a string with the selected asset and the users address, example `btc:<my-address>`. 
+### 6. 提现备注
+当用户启动提款时，钱包将生成TX，其中包含包含所选资产和用户地址的字符串的备注，例如`btc：<my-address>`。
 
-If `useFullAssetName` is set for the gateway, the selected asset will also contain the gateway name, example `brdige.btc:<address>`
+如果为网关设置了`useFullAssetName`，则所选资产也将包含网关名称，例如`brdige.btc：<address>`
 
-## Configuring Exchange Gateway
+## 配置交易网关
 
 ### apiConfig.js
 
-This file contains the API call address.
+该文件包含API调用地址。
 
-Lets assume we wish to add a new exchange called "DAC".
+让我们假设我们希望添加一个名为“DAC”的新交易。
 
 ``` 
 export const dacAPIs = {
@@ -163,14 +162,14 @@ export const dacAPIs = {
 };
 ```
 
-We then add it to the gateways.js file as the following
+然后我们将它添加到gateways.js文件中，如下所示
 
-- Object name and `id` should always be the same and the same as the backed asset prepend name.
-- `name` can be the full name
-- `baseAPI` is the same as the const in apiConfig.js
-- `isEnabled` can be set to false to disable the gateway
-- `selected` is deprecated, and can be ignored
-- `options{}` is visual placeholders and will be changed on runtime.
+- 对象名称和`ID`应始终与支持的资产前置名称相同。
+- `name` 可以是全名
+- `baseAPI` 与apiConfig.js中的const相同
+- `isEnabled` 可以设置为false以禁用网关
+- `selected` 已弃用，可以忽略
+- `options{}` 是可视占位符，将在运行时更改。
 
 ```
     DAC: {
@@ -188,30 +187,30 @@ We then add it to the gateways.js file as the following
 
 ------
 
-# How Gateway Integration works in the Reference Wallet
+# 集成网关如何在参考钱包中运行
 
-The following documentation goes in to the dept of how the code handles the various API calls in previous section of this document. This section is intended for development and integration understandings.
+以下文档介绍了代码如何处理本文档上一节中的各种API调用。 本节旨在用于开发和集成理解。
 
-## Generating the available Backed Assets
+## 生成可用的支持资产
 
-By the various APIs the reference wallet builds up a list of assets that an be deposited or withdrawn through the Gateway Exchange service provided. It is up to this service provider to supply the correct responses to make sure this list stay accurate and valid.
+通过各种API，参考钱包建立了通过提供的网关交易服务存放或提取的资产列表。 由此服务提供商提供正确的响应以确保此列表保持准确和有效。
 
-### 1. Queries
+### 1. 查询
 
-We query the `/coins`, `/trading-pairs` and `/active-wallets` APIs. 
+我们查询`/coins`, `/trading-pairs` 和`/active-wallets` APIs. 
 
-1. Build an array of `tradeableCoins[inputCoinType][outputCoinType]`
-2. Itteriate all coins and check if we can deposit/withdraw them
-- a. If `tradeableCoins[coin.backingCoinType][coin.coinType]` exists, deposits are enabled
-- b. If `tradeableCoins[coin.coinType][coin.backingCoinType]` exists, withdrawls are enabled
-3. Itteriate trough all backed coins and check
-- a. That the coin has the backers name (DAC.xxx)
-- b. That the coin has the backingCoinType string
-- c. That is has a corresponding asset friend (ie. DAC.BTC required BTC to be present)
-4. Ensure that the walletType is set and the name is present in the `/active-wallets` list.
-- This sets the `isAvailable: true` flag
+1. 构建一个数组 `tradeableCoins[inputCoinType][outputCoinType]`
+2. 剔除所有代币并检查我们是否可以存入/取出它们
+- a. 如果 `tradeableCoins[coin.backingCoinType][coin.coinType]` 存在, 则启用存款
+- b. 如果 `tradeableCoins[coin.coinType][coin.backingCoinType]` 存在, 则启用提现
+3. 通过所有支持的代币和检查
+- a. 代币有支持者名称 (DAC.xxx)
+- b. 代币有backingCoinType字符串
+- c. 那是一个相应的资产朋友 (DAC.BTC要求BTC展示)
+4. 确保已设置walletType 并且名称存在于 `/active-wallets` 列表中.
+- 这将设置 `isAvailable: true`标志
 
-If all conditions are valid the asset will be pushed to the backed asset array as the following object structure.
+如果所有条件都有效，则资产将作为以下对象结构推送到支持的资产数组。
 
 ```
 object = {
@@ -230,15 +229,15 @@ object = {
 }
 ``` 
 
-# Other Cases
+# 其他情况
 
-There are other cases where gateways have been integrated in a "lighter" fashion or with a few tweaks to work.
+在其他情况下，网关已经以“更轻”的方式集成，或者通过一些调整来实现。
 
 ### RUDEX
-Rudex is implemented trough a "simple" system, only requiring one API call. The API returns all details in a single push, this limits the UI and is also the reason why the Backed Asset object for RuDex looks a little different.
+Rudex通过“简单”系统实现，只需要一次API调用。 API在一次推送中返回所有细节，这限制了UI，也是RuDex的支持资产对象看起来有点不同的原因。
 
-### Crypto Bridge
-Crypto Bridge is implemented without the requirements of `/active-wallets`, limiting the UI to be able to sense when an asset isn't possible to deposit/withdraw.
+### 加密网桥
+Crypto Bridge的实现没有`active-wallets`的要求，限制了UI能够感知资产何时无法存入/取出。
 
 ### BlockTrades
-BlockTrades is implemented separately through a `fetchBackingAsset()` call, but uses the same techniques used by the Gateway Exchanges.
+BlockTrades通过`fetchBackingAsset（）`调用单独实现，但使用的是网关交易的相同技术。

@@ -5,19 +5,14 @@
  **校对者**： 
 
 ***    
-  
 
-.. _publish-feed:
-
-Publishing a Feed
+发布喂价
 ==========================
 
-How to publish a price feed
+如何发布喂价
 ----------------------------------------------
 
-A price feed operation takes the following form:
-
-.. code-block:: js
+喂价操作采用以下形式：
 
     {
       "publisher": "1.2.0",
@@ -44,13 +39,9 @@ A price feed operation takes the following form:
       }
      }
 
-It contains the ``publisher`` name, the ``asset_id`` for which the feed has been generated the ``feed`` as a structure of ``base`` and ``quote`` ratio, the maintenance collateral ratio (`1750 = 175%`), the short squeeze
-ratio (`1200 = 120%`) and the core exchange rate for implicit exchange of the fee.
+它包含`发行者`名称，为其生成`喂价`的`asset_id`，作为`基数`和`报价`比率的结构，维护抵押比率（1750 = 175％）， 轧空比率（1200 = 120％）和隐含交换费用的核心交易汇率。
 
-Python Script Example
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: python
+Python 脚本示例
 
     from grapheneapi import GrapheneClient
     import json
@@ -103,9 +94,3 @@ Python Script Example
         graphene.rpc.set_fees_on_builder_transaction(handle, "1.3.0")
         tx = graphene.rpc.sign_builder_transaction(handle, True)
         print(json.dumps(tx, indent=4))
-		
-		
-|
-
---------------------
-		
